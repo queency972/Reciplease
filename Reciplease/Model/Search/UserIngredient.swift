@@ -10,7 +10,7 @@ import Foundation
 
 class UserIngredient {
 
-    // MARK: - Public Properties
+    // MARK: - Public Propertie
 
     // Array with all of the ingredients
     var allIngredients = [String]()
