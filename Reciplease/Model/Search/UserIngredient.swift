@@ -9,7 +9,6 @@
 import Foundation
 
 class UserIngredient {
-//static var shared = UserIngredient()
 
     // MARK: - Public Properties
 

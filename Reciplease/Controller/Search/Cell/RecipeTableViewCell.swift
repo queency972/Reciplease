@@ -9,6 +9,7 @@
 import UIKit
 import SDWebImage
 
+// Set interface.
 class RecipeTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
@@ -23,7 +24,7 @@ class RecipeTableViewCell: UITableViewCell {
         didSet {
             titleLabel.text = recipe?.label
             detailLabel.text = "\(ingredient.ingredientsString)"
-            preparationTimeLabel.text = "\(String(describing: recipe!.totalTime)) min(s)"
+            preparationTimeLabel.text = "\(String(describing: recipe!.totalTime)) mins"
             recipeImage.sd_setImage(with: URL(string: "\(recipe?.image ?? "")"), placeholderImage: UIImage(named: "Cooking.png"))
         }
     }

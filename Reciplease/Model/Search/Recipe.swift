@@ -8,7 +8,7 @@
 
 import Foundation
 
-// MARK: - Welcome
+// MARK: - Welcome!
 struct Recipes: Decodable {
     let hits: [Hit]
 }

@@ -20,7 +20,7 @@ import Foundation
 //            }
 //        })
 //        return container
-//    }()
+//    }
 //
 //    // MARK: - Core Data Saving support
 //

@@ -12,7 +12,6 @@ import CoreData
 //final class CoreDataManager {
 //
 //    // MARK: - Properties
-//
 //    private let coreDataStack: CoreDataStack
 //    private let managedObjectContext: NSManagedObjectContext
 //

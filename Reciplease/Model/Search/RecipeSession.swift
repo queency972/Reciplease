@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 
+// Call Network with Alamofire
 protocol AlamoSession {
     func request(with url: URL, callBack: @escaping (DataResponse<Any>) -> Void)
 }

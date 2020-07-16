@@ -9,6 +9,7 @@
 import UIKit
 import SDWebImage
 
+// Search Page Interface
 class SearchPageViewController: UIViewController {
     
     let userIngredient = UserIngredient()

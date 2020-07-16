@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Search Result Interface
 class SearchResultViewController: UIViewController {
     var hits = [Hit]()
     

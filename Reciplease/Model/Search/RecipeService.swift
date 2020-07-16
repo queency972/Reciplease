@@ -10,7 +10,7 @@ import Foundation
 
 class RecipeService: UrlEncoder {
 
-    // MARK: - Enum
+    // MARK: - Enum.
 
     enum NetworkError: Error {
         case noData

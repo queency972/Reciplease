@@ -10,7 +10,7 @@ import UIKit
 
 extension String {
 
-    // Calculated property to know if there is any special character in the string
+    // Calculated the property to know if there is any special character in the string
     var specialCharacter: Bool {
         let regex = ".*[^A-Za-z ].*"
         let testString = NSPredicate(format: "SELF MATCHES %@", regex)
