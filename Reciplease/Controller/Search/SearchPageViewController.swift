@@ -16,7 +16,6 @@ class SearchPageViewController: UIViewController {
     let recipe = RecipeService()
     var hits = [Hit]()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -64,7 +63,7 @@ class SearchPageViewController: UIViewController {
                 switch result {
                 case .success(let data):
                     self?.hits = data.hits
-                    // Lancement de la transition.
+                    // Run transition.
                     self?.performSegue(withIdentifier: "segueToSucces", sender: nil)
                 case .failure(_):
                     self?.presentAlert(title: "Connection error", message: "")

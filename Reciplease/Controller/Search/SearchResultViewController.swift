@@ -11,6 +11,7 @@ import UIKit
 // Search Result Interface
 class SearchResultViewController: UIViewController {
     var hits = [Hit]()
+    var selectedRecipe: Recipe?
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -18,6 +19,12 @@ class SearchResultViewController: UIViewController {
         super.viewDidLoad()
         // Import XIB
         tableView.register(UINib(nibName: "RecipeTableViewCell", bundle: nil), forCellReuseIdentifier: "recipeCell")
+    }
+    
+    // Transition, data controller to controller (Prepare Seg)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let recipeDetailVC = segue.destination as? RecipeDetailViewController else {return}
+        recipeDetailVC.recipe = selectedRecipe
     }
 }
 
@@ -32,6 +39,14 @@ extension SearchResultViewController: UITableViewDataSource, UITableViewDelegate
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 126
+        return 196
+    }
+    
+    // Allowing to get information for the cell Selected from XIB.
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedRecipe = hits[indexPath.row].recipe
+        
+        // Run transition.
+        performSegue(withIdentifier: "recipeDetail", sender: nil)
     }
 }

@@ -10,6 +10,7 @@ import Foundation
 
 // MARK: - Welcome!
 struct Recipes: Decodable {
+    let q: String
     let hits: [Hit]
 }
 
@@ -24,6 +25,7 @@ struct Recipe: Decodable {
     let image: String
     let source: String
     let url: String
+    let shareAs: String
     let yield: Int
     let ingredientLines: [String]
     let ingredients: [Ingredient]
