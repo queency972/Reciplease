@@ -155,10 +155,9 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cooking" translatesAutoresizingMaskIntoConstraints="NO" id="NiI-0J-1gv">
                                 <rect key="frame" x="0.0" y="88" width="375" height="200"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K05-RZ-rKE">
-                                <rect key="frame" x="301" y="95" width="58" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K05-RZ-rKE">
+                                <rect key="frame" x="351.66666666666669" y="95" width="8.3333333333333144" height="14.333333333333329"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -182,8 +181,10 @@
                             <constraint firstItem="UYK-jQ-Z9C" firstAttribute="top" secondItem="wGw-TV-BMn" secondAttribute="top" constant="254" id="Avq-oW-Ivy"/>
                             <constraint firstItem="UYK-jQ-Z9C" firstAttribute="trailing" secondItem="wGw-TV-BMn" secondAttribute="trailing" id="DAa-Nb-cd1"/>
                             <constraint firstItem="wGw-TV-BMn" firstAttribute="trailing" secondItem="axs-uU-EZ5" secondAttribute="trailing" constant="220" id="DPL-hZ-8FQ"/>
+                            <constraint firstItem="K05-RZ-rKE" firstAttribute="top" secondItem="wGw-TV-BMn" secondAttribute="top" constant="7" id="DTJ-HB-iBl"/>
                             <constraint firstItem="UYK-jQ-Z9C" firstAttribute="top" secondItem="NiI-0J-1gv" secondAttribute="bottom" constant="54" id="G5h-9C-VkG"/>
                             <constraint firstItem="wGw-TV-BMn" firstAttribute="trailing" secondItem="QWb-9d-qcS" secondAttribute="trailing" constant="100" id="KlR-xp-w8Y"/>
+                            <constraint firstItem="wGw-TV-BMn" firstAttribute="trailing" secondItem="K05-RZ-rKE" secondAttribute="trailing" constant="15" id="RoD-z1-Uyv"/>
                             <constraint firstItem="axs-uU-EZ5" firstAttribute="leading" secondItem="wGw-TV-BMn" secondAttribute="leading" constant="8" id="SbF-bL-JFS"/>
                             <constraint firstItem="NiI-0J-1gv" firstAttribute="trailing" secondItem="wGw-TV-BMn" secondAttribute="trailing" id="TkH-fO-6px"/>
                             <constraint firstItem="NiI-0J-1gv" firstAttribute="leading" secondItem="wGw-TV-BMn" secondAttribute="leading" id="V0O-QW-I3Q"/>
@@ -195,6 +196,11 @@
                         <viewLayoutGuide key="safeArea" id="wGw-TV-BMn"/>
                     </view>
                     <navigationItem key="navigationItem" id="4zc-H1-ANN"/>
+                    <connections>
+                        <outlet property="preparationTimeLabel" destination="K05-RZ-rKE" id="g0o-Xi-Ofd"/>
+                        <outlet property="recipeImage" destination="NiI-0J-1gv" id="Tee-wX-mhA"/>
+                        <outlet property="recipeTitleLabel" destination="QWb-9d-qcS" id="kb0-uk-cx4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZQa-Bs-eec" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
