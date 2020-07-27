@@ -11,18 +11,37 @@ import UIKit
 //
 class RecipeDetailViewController: UIViewController {
 
+    var recipe: Recipe?
+
     @IBOutlet weak var recipeTitleLabel: UILabel!
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var preparationTimeLabel: UILabel!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var getDirection: UIButton!
 
-    var recipe: Recipe?
+    // Button allowing to access to webSite
+    @IBAction func getDirectionButton(_ sender: UIButton) {
+        guard let getDirection = recipe?.shareAs else {
+            UIApplication.shared.open(URL(string: "https://www.edamam.com/404")!)
+            return
+        }
+        UIApplication.shared.open(URL(string: getDirection)!)
+    }
+
+    @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         recipeTitleLabel.text = recipe?.label
         preparationTimeLabel.text = "\(String(describing: recipe!.totalTime)) min(s)"
         recipeImage.sd_setImage(with: URL(string: "\(recipe?.image ?? "")"), placeholderImage: UIImage(named: "Cooking.png"))
+        setupGetDirectionButton()
+    }
+
+    // Setup button
+    func setupGetDirectionButton() {
+        getDirection.layer.cornerRadius = 5
+        getDirection.layer.borderWidth = 1
+        getDirection.layer.borderColor = UIColor.black.cgColor
     }
 }
 

@@ -20,11 +20,12 @@ class RecipeTableViewCell: UITableViewCell {
     var ingredient = UserIngredient()
     var listIngredient: Recipes?
 
+    // Set interface
     var recipe: Recipe? {
         didSet {
             titleLabel.text = recipe?.label
             detailLabel.text = "\(String(describing: ingredient.allIngredients))"
-            preparationTimeLabel.text = "\(String(describing: recipe!.totalTime)) mins"
+            preparationTimeLabel.text = "\(String(describing: recipe!.totalTime)) min(s)"
             recipeImage.sd_setImage(with: URL(string: "\(recipe?.image ?? "")"), placeholderImage: UIImage(named: "Cooking.png"))
         }
     }

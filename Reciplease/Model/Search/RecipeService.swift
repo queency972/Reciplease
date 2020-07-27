@@ -22,8 +22,8 @@ class RecipeService: UrlEncoder {
     private let session: AlamoSession
 
     init(session: AlamoSession = RecipeSession()) {
-          self.session = session
-      }
+        self.session = session
+    }
 
     // MARK: - Method
 

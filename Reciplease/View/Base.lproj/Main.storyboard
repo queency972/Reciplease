@@ -135,7 +135,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UYK-jQ-Z9C">
-                                <rect key="frame" x="0.0" y="342" width="375" height="387"/>
+                                <rect key="frame" x="0.0" y="342" width="375" height="327"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ingredients" id="bnF-3b-3Lo">
@@ -162,7 +162,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pasta Salad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWb-9d-qcS">
-                                <rect key="frame" x="100" y="248.00000000000003" width="175" height="31.333333333333343"/>
+                                <rect key="frame" x="70" y="248.00000000000003" width="235" height="31.333333333333343"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -173,30 +173,46 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WY4-WL-fNu">
+                                <rect key="frame" x="20" y="672" width="335" height="54"/>
+                                <color key="backgroundColor" red="0.53168623100000001" green="0.048235076109999997" blue="0.052668386919999997" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="26"/>
+                                <state key="normal" title="Get Direction">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="getDirectionButton:" destination="pPv-kM-FxR" eventType="touchUpInside" id="Ecy-4Q-wYg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="UYK-jQ-Z9C" firstAttribute="leading" secondItem="wGw-TV-BMn" secondAttribute="leading" id="3d0-qZ-OxM"/>
+                            <constraint firstItem="wGw-TV-BMn" firstAttribute="bottom" secondItem="WY4-WL-fNu" secondAttribute="bottom" constant="3" id="4hf-tO-SQx"/>
                             <constraint firstItem="QWb-9d-qcS" firstAttribute="top" secondItem="wGw-TV-BMn" secondAttribute="top" constant="160" id="7Ag-Q7-Vch"/>
                             <constraint firstItem="UYK-jQ-Z9C" firstAttribute="top" secondItem="wGw-TV-BMn" secondAttribute="top" constant="254" id="Avq-oW-Ivy"/>
+                            <constraint firstItem="WY4-WL-fNu" firstAttribute="leading" secondItem="wGw-TV-BMn" secondAttribute="leading" constant="20" id="Cdp-oc-wyX"/>
                             <constraint firstItem="UYK-jQ-Z9C" firstAttribute="trailing" secondItem="wGw-TV-BMn" secondAttribute="trailing" id="DAa-Nb-cd1"/>
                             <constraint firstItem="wGw-TV-BMn" firstAttribute="trailing" secondItem="axs-uU-EZ5" secondAttribute="trailing" constant="220" id="DPL-hZ-8FQ"/>
                             <constraint firstItem="K05-RZ-rKE" firstAttribute="top" secondItem="wGw-TV-BMn" secondAttribute="top" constant="7" id="DTJ-HB-iBl"/>
                             <constraint firstItem="UYK-jQ-Z9C" firstAttribute="top" secondItem="NiI-0J-1gv" secondAttribute="bottom" constant="54" id="G5h-9C-VkG"/>
-                            <constraint firstItem="wGw-TV-BMn" firstAttribute="trailing" secondItem="QWb-9d-qcS" secondAttribute="trailing" constant="100" id="KlR-xp-w8Y"/>
+                            <constraint firstItem="wGw-TV-BMn" firstAttribute="trailing" secondItem="QWb-9d-qcS" secondAttribute="trailing" constant="70" id="KlR-xp-w8Y"/>
+                            <constraint firstItem="WY4-WL-fNu" firstAttribute="top" secondItem="UYK-jQ-Z9C" secondAttribute="bottom" constant="3" id="Oz3-bP-WFu"/>
                             <constraint firstItem="wGw-TV-BMn" firstAttribute="trailing" secondItem="K05-RZ-rKE" secondAttribute="trailing" constant="15" id="RoD-z1-Uyv"/>
                             <constraint firstItem="axs-uU-EZ5" firstAttribute="leading" secondItem="wGw-TV-BMn" secondAttribute="leading" constant="8" id="SbF-bL-JFS"/>
                             <constraint firstItem="NiI-0J-1gv" firstAttribute="trailing" secondItem="wGw-TV-BMn" secondAttribute="trailing" id="TkH-fO-6px"/>
                             <constraint firstItem="NiI-0J-1gv" firstAttribute="leading" secondItem="wGw-TV-BMn" secondAttribute="leading" id="V0O-QW-I3Q"/>
-                            <constraint firstItem="QWb-9d-qcS" firstAttribute="leading" secondItem="wGw-TV-BMn" secondAttribute="leading" constant="100" id="dJH-Ck-nZl"/>
+                            <constraint firstItem="wGw-TV-BMn" firstAttribute="trailing" secondItem="WY4-WL-fNu" secondAttribute="trailing" constant="20" id="czg-Z8-fN8"/>
+                            <constraint firstItem="QWb-9d-qcS" firstAttribute="leading" secondItem="wGw-TV-BMn" secondAttribute="leading" constant="70" id="dJH-Ck-nZl"/>
                             <constraint firstItem="NiI-0J-1gv" firstAttribute="top" secondItem="wGw-TV-BMn" secondAttribute="top" id="fqq-OK-awI"/>
-                            <constraint firstItem="UYK-jQ-Z9C" firstAttribute="bottom" secondItem="wGw-TV-BMn" secondAttribute="bottom" id="gTj-KK-kvA"/>
+                            <constraint firstItem="UYK-jQ-Z9C" firstAttribute="bottom" secondItem="wGw-TV-BMn" secondAttribute="bottom" constant="-60" id="gTj-KK-kvA"/>
                             <constraint firstItem="UYK-jQ-Z9C" firstAttribute="top" secondItem="axs-uU-EZ5" secondAttribute="bottom" constant="8" id="uNA-lE-Mvy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wGw-TV-BMn"/>
                     </view>
                     <navigationItem key="navigationItem" id="4zc-H1-ANN"/>
                     <connections>
+                        <outlet property="getDirection" destination="WY4-WL-fNu" id="JBo-O6-0S8"/>
                         <outlet property="preparationTimeLabel" destination="K05-RZ-rKE" id="g0o-Xi-Ofd"/>
                         <outlet property="recipeImage" destination="NiI-0J-1gv" id="Tee-wX-mhA"/>
                         <outlet property="recipeTitleLabel" destination="QWb-9d-qcS" id="kb0-uk-cx4"/>
