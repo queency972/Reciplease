@@ -44,7 +44,6 @@ class RecipeService: UrlEncoder {
                 return
             }
             callback(.success(dataDecoded))
-            print(dataDecoded)
         }
     }
 }

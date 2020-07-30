@@ -19,14 +19,33 @@ class RecipeTableViewCell: UITableViewCell {
 
     var ingredient = UserIngredient()
     var listIngredient: Recipes?
+    var coreDataStack = CoreDataStack()
 
     // Set interface
     var recipe: Recipe? {
         didSet {
             titleLabel.text = recipe?.label
-            detailLabel.text = "\(String(describing: ingredient.allIngredients))"
+            // detailLabel.text = "\(String(describing: ingredient.allIngredients))"
             preparationTimeLabel.text = "\(String(describing: recipe!.totalTime)) min(s)"
             recipeImage.sd_setImage(with: URL(string: "\(recipe?.image ?? "")"), placeholderImage: UIImage(named: "Cooking.png"))
         }
+    }
+
+    @IBAction func addFavoris(_ sender: UIButton) {
+        colorFavoris()
+        let ingredient = AllIngredient(context: coreDataStack.mainContext)
+        //ingredient.ingredient =
+        //try? coreDataStack.mainContext.save()
+    }
+
+    func  colorFavoris() -> UIButton {
+        let favorisImage = favorisButton
+
+        if favorisImage?.tintColor == .black {
+            favorisImage?.tintColor = .yellow
+        } else {
+            favorisImage?.tintColor = .black
+        }
+        return favorisImage!
     }
 }

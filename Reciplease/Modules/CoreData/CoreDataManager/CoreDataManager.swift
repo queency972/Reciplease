@@ -9,16 +9,31 @@
 import Foundation
 import CoreData
 
-//final class CoreDataManager {
-//
-//    // MARK: - Properties
-//    private let coreDataStack: CoreDataStack
-//    private let managedObjectContext: NSManagedObjectContext
-//
-//    var allIngredients: [allIngredients] {
-//        let request: NSFetchRequest<allIngredients> = allIngredients.fetchRequest()
-//        request.sortDescriptors = [NSSortDescriptor(key: "ingredient", ascending: true)]
-//        guard let tasks = try? managedObjectContext.fetch(request) else { return [] }
-//        return tasks
-//    }
-//}
+final class CoreDataManager {
+
+    // MARK: - Properties
+    private let coreDataStack: CoreDataStack
+    private let managedObjectContext: NSManagedObjectContext
+
+    var allIngredients: [AllIngredient] {
+        let request: NSFetchRequest<AllIngredient> = AllIngredient.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key: "ingredient", ascending: true)]
+        guard let ingredient = try? managedObjectContext.fetch(request) else { return [] }
+        return ingredient
+    }
+
+    // MARK: - Initializer
+
+    init(coreDataStack: CoreDataStack) {
+        self.coreDataStack = coreDataStack
+        self.managedObjectContext = coreDataStack.mainContext
+    }
+
+    // MARK: - Manage Ingredient Entity
+
+    func favorisRecipes(name: String) {
+        let ingredient = AllIngredient(context: managedObjectContext)
+        ingredient.ingredient = name
+        coreDataStack.saveContext()
+    }
+}

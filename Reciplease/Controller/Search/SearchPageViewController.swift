@@ -18,13 +18,19 @@ class SearchPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupGetDirectionButton()
+        activityIndicator.isHidden = true
     }
     
     @IBOutlet weak var ingredientTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var searchForRecipes: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
+
     @IBAction func clearIngredientButton(_ sender: UIButton) {
         userIngredient.resetIngredients()
+        // Allowing to reload TableView
         tableView.reloadData()
     }
     
@@ -51,18 +57,31 @@ class SearchPageViewController: UIViewController {
         tableView.reloadData()
         ingredientTextField.text = ""
     }
+
+    @objc func recipesLoaded(recipe: Bool) {
+        if recipe == true {
+            activityIndicator.isHidden = true
+            searchForRecipes.isHidden = false
+        } else {
+            activityIndicator.isHidden = false
+            searchForRecipes.isHidden = true
+        }
+    }
     
     // Run call network to get recipes.
     @IBAction func searchForRecipes(_ sender: UIButton) {
+        self.recipesLoaded(recipe: false)
         guard !userIngredient.allIngredients.isEmpty else {
             presentAlert(title: "Oups", message: "Please enter an ingredient !")
             return
         }
         recipe.getRecipe(ingredientsFormatted: userIngredient.ingredientsString) { [weak self] result in
+
             DispatchQueue.main.async {
                 switch result {
                 case .success(let data):
                     self?.hits = data.hits
+                    self?.recipesLoaded(recipe: true)
                     // Run transition.
                     self?.performSegue(withIdentifier: "segueToSucces", sender: nil)
                 case .failure(_):
@@ -70,6 +89,13 @@ class SearchPageViewController: UIViewController {
                 }
             }
         }
+    }
+
+    // Setup button
+    func setupGetDirectionButton() {
+        searchForRecipes.layer.cornerRadius = 5
+        searchForRecipes.layer.borderWidth = 1
+        searchForRecipes.layer.borderColor = UIColor.black.cgColor
     }
     
     // Transition, data controller to controller (Prepare Seg)

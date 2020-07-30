@@ -12,6 +12,7 @@ import UIKit
 class RecipeDetailViewController: UIViewController {
 
     var recipe: Recipe?
+    var selectedRecipe: Recipe?
 
     @IBOutlet weak var recipeTitleLabel: UILabel!
     @IBOutlet weak var recipeImage: UIImageView!
@@ -21,10 +22,10 @@ class RecipeDetailViewController: UIViewController {
     // Button allowing to access to webSite
     @IBAction func getDirectionButton(_ sender: UIButton) {
         guard let getDirection = recipe?.shareAs else {
-            UIApplication.shared.open(URL(string: "https://www.edamam.com/404")!)
-            return
-        }
-        UIApplication.shared.open(URL(string: getDirection)!)
+               UIApplication.shared.open(URL(string: "https://www.edamam.com/404")!)
+               return
+           }
+           UIApplication.shared.open(URL(string: getDirection)!)
     }
 
     @IBOutlet weak var tableView: UITableView!
