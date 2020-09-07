@@ -26,8 +26,8 @@ class SearchPageViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchForRecipes: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-
-
+    
+    
     @IBAction func clearIngredientButton(_ sender: UIButton) {
         userIngredient.resetIngredients()
         // Allowing to reload TableView
@@ -57,7 +57,7 @@ class SearchPageViewController: UIViewController {
         tableView.reloadData()
         ingredientTextField.text = ""
     }
-
+    
     @objc func recipesLoaded(recipe: Bool) {
         if recipe == true {
             activityIndicator.isHidden = true
@@ -76,7 +76,7 @@ class SearchPageViewController: UIViewController {
             return
         }
         recipe.getRecipe(ingredientsFormatted: userIngredient.ingredientsString) { [weak self] result in
-
+            
             DispatchQueue.main.async {
                 switch result {
                 case .success(let data):
@@ -90,7 +90,7 @@ class SearchPageViewController: UIViewController {
             }
         }
     }
-
+    
     // Setup button
     func setupGetDirectionButton() {
         searchForRecipes.layer.cornerRadius = 5
@@ -113,7 +113,7 @@ extension SearchPageViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientCell", for: indexPath)
-        cell.textLabel?.text = userIngredient.allIngredients[indexPath.row]
+        cell.textLabel?.text = "- \(userIngredient.allIngredients[indexPath.row])"
         cell.textLabel?.font = UIFont(name:"Noteworthy", size:22)
         return cell
     }
@@ -123,6 +123,3 @@ extension SearchPageViewController: UITableViewDataSource, UITableViewDelegate {
         return userIngredient.allIngredients.isEmpty ? 50 : 1
     }
 }
-
-
-

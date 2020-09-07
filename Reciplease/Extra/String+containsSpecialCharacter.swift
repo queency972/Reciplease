@@ -8,8 +8,9 @@
 
 import UIKit
 
-extension String {
+// MARK: - Extension String
 
+extension String {
     // Calculated the property to know if there is any special character in the string
     var specialCharacter: Bool {
         let regex = ".*[^A-Za-z ].*"

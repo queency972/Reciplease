@@ -9,10 +9,14 @@
 import Foundation
 import Alamofire
 
+// MARK: - Protocol Enconder
+
 // Call Network with Alamofire
 protocol AlamoSession {
     func request(with url: URL, callBack: @escaping (DataResponse<Any>) -> Void)
 }
+
+// MARK: - Class RecipeSession
 
 class RecipeSession: AlamoSession {
     func request(with url: URL, callBack: @escaping (DataResponse<Any>) -> Void) {

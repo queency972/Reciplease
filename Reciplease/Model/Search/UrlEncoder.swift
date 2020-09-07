@@ -8,10 +8,14 @@
 
 import Foundation
 
+// MARK: - Protocol Enconder
+
 // Encoder URL.
 protocol UrlEncoder {
     func encode(baseUrl: URL, parameters: [(String, Any)]?) -> URL
 }
+
+// MARK: - Extention Encoder
 
 extension UrlEncoder {
     func encode(baseUrl: URL, parameters: [(String, Any)]?) -> URL {

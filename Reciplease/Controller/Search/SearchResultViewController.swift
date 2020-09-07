@@ -25,8 +25,12 @@ class SearchResultViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let recipeDetailVC = segue.destination as? RecipeDetailViewController else {return}
         recipeDetailVC.recipe = selectedRecipe
+        //        let detail = Details(title: selectedRecipe!.label, time: String(selectedRecipe!.totalTime), ingredients: selectedRecipe!.ingredientLines)
+        //        recipeDetailVC.detail = detail
     }
 }
+
+// MARK: - Extension
 
 extension SearchResultViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -42,10 +46,9 @@ extension SearchResultViewController: UITableViewDataSource, UITableViewDelegate
         return 196
     }
     
-    // Allowing to get information for the cell Selected from XIB.
+    //    // Allowing to get information for the cell Selected from XIB.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedRecipe = hits[indexPath.row].recipe
-        
         // Run transition.
         performSegue(withIdentifier: "recipeDetail", sender: nil)
     }

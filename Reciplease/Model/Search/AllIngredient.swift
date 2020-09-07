@@ -11,5 +11,5 @@ import CoreData
 
 // NSFetchRequest est la classe qui permet au contexte de réclamer des objets à la base de données. Cette méthode vous permet donc d'obtenir une instance de NSFetchRequest, dédiée à la récupération d'objets Person.
 
-//AllIngredient().ingredient
-
+//var recipe = RecipeEntity()
+//recipe.image

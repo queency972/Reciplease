@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="AllIngredient" representedClassName=".AllIngredient" syncable="YES" codeGenerationType="class">
-        <attribute name="ingredient" optional="YES" attributeType="String"/>
+    <entity name="RecipeEntity" representedClassName=".RecipeEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="favorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="ingredients" optional="YES" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="time" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
+        <attribute name="yield" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="AllIngredient" positionX="-36" positionY="9" width="128" height="58"/>
+        <element name="RecipeEntity" positionX="-36" positionY="9" width="128" height="148"/>
     </elements>
 </model>

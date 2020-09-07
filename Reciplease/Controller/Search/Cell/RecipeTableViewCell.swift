@@ -15,37 +15,34 @@ class RecipeTableViewCell: UITableViewCell {
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var preparationTimeLabel: UILabel!
     @IBOutlet weak var recipeImage: UIImageView!
-    @IBOutlet weak var favorisButton: UIButton!
+    @IBOutlet weak var yieldLabel: UILabel!
 
-    var ingredient = UserIngredient()
-    var listIngredient: Recipes?
-    var coreDataStack = CoreDataStack()
+    // MARK: - Properties
 
     // Set interface
     var recipe: Recipe? {
         didSet {
+            let seconde: Int = 60
             titleLabel.text = recipe?.label
-            // detailLabel.text = "\(String(describing: ingredient.allIngredients))"
-            preparationTimeLabel.text = "\(String(describing: recipe!.totalTime)) min(s)"
+            if recipe!.totalTime < seconde {
+                preparationTimeLabel.text = "\(String(describing: recipe!.totalTime))s"
+            }
+            else {
+                preparationTimeLabel.text = "\(recipe!.totalTime.timeInSecondsToString)m"
+            }
+            // preparationTimeLabel.text = "\(String(describing: recipe!.totalTime)) sec(s)"
             recipeImage.sd_setImage(with: URL(string: "\(recipe?.image ?? "")"), placeholderImage: UIImage(named: "Cooking.png"))
+            yieldLabel.text = "\(String(describing: recipe!.yield)) yield(s)"
         }
     }
 
-    @IBAction func addFavoris(_ sender: UIButton) {
-        colorFavoris()
-        let ingredient = AllIngredient(context: coreDataStack.mainContext)
-        //ingredient.ingredient =
-        //try? coreDataStack.mainContext.save()
-    }
-
-    func  colorFavoris() -> UIButton {
-        let favorisImage = favorisButton
-
-        if favorisImage?.tintColor == .black {
-            favorisImage?.tintColor = .yellow
-        } else {
-            favorisImage?.tintColor = .black
+    var recipeEntity: RecipeEntity? {
+        didSet {
+            titleLabel.text = recipeEntity?.title
+            preparationTimeLabel.text = "\(String(describing: recipeEntity!.time))s"
+            recipeImage.image = UIImage(data: (recipeEntity?.image)!)
+            yieldLabel.text = "\(String(describing: recipeEntity!.yield)) yield(s)"
+            print(yieldLabel.text!)
         }
-        return favorisImage!
     }
 }
