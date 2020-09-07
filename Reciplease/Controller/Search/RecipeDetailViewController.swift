@@ -19,7 +19,7 @@ struct Details {
 
 class RecipeDetailViewController: UIViewController {
 
-    var detail:Details?
+    var detail: Details?
     var recipe: Recipe?
     var coreDataManager: CoreDataManager?
 

@@ -24,9 +24,9 @@ class SearchResultViewController: UIViewController {
     // Transition, data controller to controller (Prepare Seg)
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let recipeDetailVC = segue.destination as? RecipeDetailViewController else {return}
-        recipeDetailVC.recipe = selectedRecipe
-        //        let detail = Details(title: selectedRecipe!.label, time: String(selectedRecipe!.totalTime), ingredients: selectedRecipe!.ingredientLines)
-        //        recipeDetailVC.detail = detail
+        //recipeDetailVC.recipe = selectedRecipe
+        let detail = Details(title: selectedRecipe!.label, time: String(selectedRecipe!.totalTime), ingredients: selectedRecipe!.ingredientLines, url: selectedRecipe!.shareAs, yield: String(selectedRecipe!.yield), image: selectedRecipe!.image.data!)
+                recipeDetailVC.detail = detail
     }
 }
 
