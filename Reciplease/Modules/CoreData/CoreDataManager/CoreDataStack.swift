@@ -26,7 +26,7 @@ public class CoreDataStack {
     // MARK: - Core Data stack
 
     public lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: modelName )
+        let container = NSPersistentContainer(name: "Reciplease" )
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
@@ -41,7 +41,7 @@ public class CoreDataStack {
         return persistentContainer.viewContext
     }()
 
-    public func saveContext() {
+    func saveContext() {
         guard mainContext.hasChanges else { return }
         do {
             try mainContext.save()

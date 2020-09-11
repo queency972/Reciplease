@@ -15,7 +15,7 @@ class FavoriteListViewController: UIViewController {
     // MARK: - Properties
 
     private var coreDataManager: CoreDataManager?
-    private var dataInCoreData = [RecipeEntity]()
+    // private var dataInCoreData = [RecipeEntity]()
     private var recipeEntity: RecipeEntity?
 
     override func viewDidLoad() {
@@ -33,10 +33,16 @@ class FavoriteListViewController: UIViewController {
 
     // Transition, data controller to controller (Prepare Seg)
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // guard let favoriteDetailsVC = segue.destination as?
-        // Modif favoriteDetails...
-        //            RecipeDetailViewController else {return}
-        //       favoriteDetailsVC.coreDataManager = coreDataManager
+        guard let favoriteDetailsVC = segue.destination as?
+            RecipeDetailViewController else {return}
+
+        var imageToString = String(decoding: (recipeEntity?.image)!, as: UTF8.self)
+
+        var detailIngredients = DetailIngredients(title: recipeEntity!.title!, time: recipeEntity!.time!, ingredients: recipeEntity!.ingredients!, url: recipeEntity!.url!, yield: recipeEntity!.yield!, image: imageToString)
+
+        detailIngredients.image = recipeEntity?.image
+
+        favoriteDetailsVC.detailIngredients = detailIngredients
     }
 }
 
@@ -49,7 +55,7 @@ extension FavoriteListViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let recipesCell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as? RecipeTableViewCell
             else { return UITableViewCell() }
-
+        
         recipesCell.recipeEntity = coreDataManager?.recipes[indexPath.row]
         return recipesCell
     }
@@ -59,9 +65,9 @@ extension FavoriteListViewController: UITableViewDataSource, UITableViewDelegate
     }
     // Allowing to get information for the cell Selected from XIB.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        recipeEntity = coreDataManager?.recipes[indexPath.row]
         // Run transition.
-        performSegue(withIdentifier: "favoris", sender: nil)
+        performSegue(withIdentifier: "favoriteDetails", sender: nil)
     }
     // Use heightForFooterInSection (line) if necessary
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

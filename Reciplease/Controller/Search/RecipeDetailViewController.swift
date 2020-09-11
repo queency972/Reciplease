@@ -8,18 +8,18 @@
 
 import UIKit
 
-struct Details {
+struct DetailIngredients {
     let title: String
     let time: String
     let ingredients: [String]
     let url: String
     let yield: String
-    let image: Data
+    var image: String
 }
 
 class RecipeDetailViewController: UIViewController {
 
-    var detail: Details?
+    var detailIngredients: DetailIngredients?
     var recipe: Recipe?
     var coreDataManager: CoreDataManager?
 
@@ -31,19 +31,22 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var yieldLabel: UILabel!
 
     @IBAction func addFavorisButton(_ sender: UIBarButtonItem) {
-        let totalTime = String(recipe!.totalTime)
-        let yield = String(recipe!.yield)
-        if (coreDataManager?.isRecipeRegistered(title: recipe!.label))! {
+        let totalTime = detailIngredients!.time
+        let yield = String(detailIngredients!.yield)
+        if (coreDataManager?.isRecipeRegistered(title: detailIngredients!.title))! {
             favorisButton.tintColor = .white
-            coreDataManager?.deleteRecipe(title: recipe!.label)
-        } else {
+            // Deleting recipe
+            coreDataManager?.deleteRecipe(title: detailIngredients!.title)
+        }
+        //......
+        else {
             favorisButton.tintColor = .yellow
-            coreDataManager?.createRecipe(title: recipe!.label, ingredients: recipe!.ingredientLines, time: totalTime, url: recipe!.shareAs, yield: yield, image: recipe!.image.data)
+            coreDataManager?.createRecipe(title: detailIngredients!.title, ingredients: detailIngredients!.ingredients, time: totalTime, url: detailIngredients!.url, yield: yield, image: detailIngredients!.image.data)
         }
     }
 
     func setColorFavorite() {
-        if (coreDataManager?.isRecipeRegistered(title: recipe!.label))! {
+        if (coreDataManager?.isRecipeRegistered(title: detailIngredients!.title))! {
             favorisButton.tintColor = .yellow
         } else {
             favorisButton.tintColor = .white
@@ -57,7 +60,7 @@ class RecipeDetailViewController: UIViewController {
 
     // Button allowing to access to webSite
     @IBAction func getDirectionButton(_ sender: UIButton) {
-        guard let getDirection = recipe?.shareAs else {
+        guard let getDirection = detailIngredients?.url else {
             UIApplication.shared.open(URL(string: "https://www.edamam.com/404")!)
             return
         }
@@ -75,40 +78,34 @@ class RecipeDetailViewController: UIViewController {
         // On instancie le coreDataManager
         coreDataManager = CoreDataManager(coreDataStack: coredataStack)
 
-        recipeTitleLabel.text = recipe?.label
-        let seconde: Int = 60
+        recipeTitleLabel.text = detailIngredients?.title
+            preparationTimeLabel.text =  detailIngredients!.time
 
-        if recipe!.totalTime < seconde {
-            preparationTimeLabel.text = "\(String(describing: recipe!.totalTime))s"
-        }
-        else {
-            preparationTimeLabel.text = "\(recipe!.totalTime.timeInSecondsToString)m"
-        }
-        recipeImage.sd_setImage(with: URL(string: "\(recipe?.image ?? "")"), placeholderImage: UIImage(named: "Cooking.png"))
+        recipeImage.sd_setImage(with: URL(string: "\(detailIngredients?.image ?? "")"), placeholderImage: UIImage(named: "Cooking.png"))
         getDirection.setupGetDirectionButton()
-        yieldLabel.text = "\(String(describing: recipe!.yield)) yield(s)"
+        yieldLabel.text = "\(String(describing: detailIngredients!.yield)) yield(s)"
     }
 }
 
 // MARK: - TableView
 extension RecipeDetailViewController: UITableViewDataSource, UITableViewDelegate {
 
-    // numberof line need
+    // number of line need
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (recipe?.ingredientLines.count)!
+        return (detailIngredients?.ingredients.count)!
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Modif withIdentifier
         let cell = tableView.dequeueReusableCell(withIdentifier: "ingredients", for: indexPath)
         // Set cell with ingredientLines's array.
-        cell.textLabel?.text = recipe?.ingredientLines[indexPath.row]
+        cell.textLabel?.text = detailIngredients?.ingredients[indexPath.row]
         cell.textLabel?.font = UIFont(name:"Noteworthy", size:18)
         return cell
     }
 
     // Use heightForFooterInSection (line) if necessary
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return (recipe?.ingredientLines.isEmpty)! ? 50 : 1
+        return (detailIngredients?.ingredients.isEmpty)! ? 50 : 1
     }
 }

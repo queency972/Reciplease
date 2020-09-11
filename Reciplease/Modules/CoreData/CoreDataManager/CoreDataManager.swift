@@ -48,16 +48,20 @@ final class CoreDataManager {
         let recipe = RecipeEntity(context: managedObjectContext)
         recipe.title = title
         recipe.ingredients = ingredients
-        recipe.time = (time)
-        recipe.yield = (yield)
-        recipe.url = url
+        recipe.time = time
         recipe.image = image
+        recipe.yield = yield
+        recipe.url = url
         coreDataStack.saveContext()
-        print("CoreDataManager")
-        print(ingredients)
     }
     
     func deleteRecipe(title: String) {
-    
+        let fetchRequest: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "title = %@", title)
+        guard let recipesEntities = try? managedObjectContext.fetch(fetchRequest) else {return}
+        guard let recipeEntity = recipesEntities.first else {return}
+        managedObjectContext.delete(recipeEntity)
+        try? managedObjectContext.save()
+
     }
 }

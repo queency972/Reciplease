@@ -25,8 +25,9 @@ class SearchResultViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let recipeDetailVC = segue.destination as? RecipeDetailViewController else {return}
         //recipeDetailVC.recipe = selectedRecipe
-        let detail = Details(title: selectedRecipe!.label, time: String(selectedRecipe!.totalTime), ingredients: selectedRecipe!.ingredientLines, url: selectedRecipe!.shareAs, yield: String(selectedRecipe!.yield), image: selectedRecipe!.image.data!)
-                recipeDetailVC.detail = detail
+        let networkDetailIngredients = DetailIngredients(title: selectedRecipe!.label, time: selectedRecipe!.totalTime.timeInSecondsToString, ingredients: selectedRecipe!.ingredientLines, url: selectedRecipe!.shareAs, yield: String(selectedRecipe!.yield), image: selectedRecipe!.image)
+        
+                recipeDetailVC.detailIngredients = networkDetailIngredients
     }
 }
 

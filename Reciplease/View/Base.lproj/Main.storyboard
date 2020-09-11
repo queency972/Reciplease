@@ -81,7 +81,7 @@
                     <navigationItem key="navigationItem" title="Favorites" id="0hL-YY-iYL"/>
                     <connections>
                         <outlet property="tableView" destination="qKd-4t-w7x" id="aMw-KZ-TXh"/>
-                        <segue destination="pPv-kM-FxR" kind="show" identifier="favoris" id="ane-ED-wh7"/>
+                        <segue destination="pPv-kM-FxR" kind="show" identifier="favoriteDetails" id="ane-ED-wh7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BVk-SE-vp6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -392,7 +392,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ajs-RQ-ZSu"/>
+        <segue reference="ane-ED-wh7"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Add" width="25" height="25"/>
