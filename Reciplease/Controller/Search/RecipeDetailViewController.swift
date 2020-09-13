@@ -38,10 +38,9 @@ class RecipeDetailViewController: UIViewController {
             // Deleting recipe
             coreDataManager?.deleteRecipe(title: detailIngredients!.title)
         }
-        //......
         else {
             favorisButton.tintColor = .yellow
-            coreDataManager?.createRecipe(title: detailIngredients!.title, ingredients: detailIngredients!.ingredients, time: totalTime, url: detailIngredients!.url, yield: yield, image: detailIngredients!.image.data)
+            coreDataManager?.createRecipe(title: detailIngredients!.title, ingredients: detailIngredients!.ingredients, time: totalTime, url: detailIngredients!.url, yield: yield, image: (detailIngredients!.image))
         }
     }
 
@@ -68,7 +67,7 @@ class RecipeDetailViewController: UIViewController {
     }
 
     @IBOutlet weak var tableView: UITableView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // On Recupere Appdelage ds l'application
@@ -79,7 +78,7 @@ class RecipeDetailViewController: UIViewController {
         coreDataManager = CoreDataManager(coreDataStack: coredataStack)
 
         recipeTitleLabel.text = detailIngredients?.title
-            preparationTimeLabel.text =  detailIngredients!.time
+        preparationTimeLabel.text =  detailIngredients!.time
 
         recipeImage.sd_setImage(with: URL(string: "\(detailIngredients?.image ?? "")"), placeholderImage: UIImage(named: "Cooking.png"))
         getDirection.setupGetDirectionButton()

@@ -17,3 +17,12 @@ extension String {
         return data
     }
 }
+
+extension Data {
+    var utf8String: String? {
+        return string(as: .utf8)
+    }
+    func string(as encoding: String.Encoding) -> String? {
+        return String(data: self, encoding: encoding)
+    }
+}

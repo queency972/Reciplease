@@ -27,7 +27,7 @@ class SearchResultViewController: UIViewController {
         //recipeDetailVC.recipe = selectedRecipe
         let networkDetailIngredients = DetailIngredients(title: selectedRecipe!.label, time: selectedRecipe!.totalTime.timeInSecondsToString, ingredients: selectedRecipe!.ingredientLines, url: selectedRecipe!.shareAs, yield: String(selectedRecipe!.yield), image: selectedRecipe!.image)
         
-                recipeDetailVC.detailIngredients = networkDetailIngredients
+        recipeDetailVC.detailIngredients = networkDetailIngredients
     }
 }
 

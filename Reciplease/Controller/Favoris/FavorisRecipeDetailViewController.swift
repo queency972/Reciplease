@@ -15,7 +15,6 @@ class FavoriteListViewController: UIViewController {
     // MARK: - Properties
 
     private var coreDataManager: CoreDataManager?
-    // private var dataInCoreData = [RecipeEntity]()
     private var recipeEntity: RecipeEntity?
 
     override func viewDidLoad() {
@@ -36,11 +35,7 @@ class FavoriteListViewController: UIViewController {
         guard let favoriteDetailsVC = segue.destination as?
             RecipeDetailViewController else {return}
 
-        var imageToString = String(decoding: (recipeEntity?.image)!, as: UTF8.self)
-
-        var detailIngredients = DetailIngredients(title: recipeEntity!.title!, time: recipeEntity!.time!, ingredients: recipeEntity!.ingredients!, url: recipeEntity!.url!, yield: recipeEntity!.yield!, image: imageToString)
-
-        detailIngredients.image = recipeEntity?.image
+        let detailIngredients = DetailIngredients(title: recipeEntity!.title!, time: recipeEntity!.time!, ingredients: recipeEntity!.ingredients!, url: recipeEntity!.url!, yield: recipeEntity!.yield!, image: recipeEntity!.image!)
 
         favoriteDetailsVC.detailIngredients = detailIngredients
     }
