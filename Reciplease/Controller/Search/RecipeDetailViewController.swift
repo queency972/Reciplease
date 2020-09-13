@@ -105,6 +105,6 @@ extension RecipeDetailViewController: UITableViewDataSource, UITableViewDelegate
 
     // Use heightForFooterInSection (line) if necessary
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return (detailIngredients?.ingredients.isEmpty)! ? 50 : 1
+        return (detailIngredients?.ingredients.isEmpty)! ? 0 : 1
     }
 }

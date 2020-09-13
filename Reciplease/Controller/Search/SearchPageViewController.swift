@@ -73,6 +73,7 @@ class SearchPageViewController: UIViewController {
         self.recipesLoaded(recipe: false)
         guard !userIngredient.allIngredients.isEmpty else {
             presentAlert(title: "Oups", message: "Please enter an ingredient !")
+            self.recipesLoaded(recipe: true)
             return
         }
         recipe.getRecipe(ingredientsFormatted: userIngredient.ingredientsString) { [weak self] result in
@@ -108,7 +109,13 @@ class SearchPageViewController: UIViewController {
 // MARK: - TableView
 extension SearchPageViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        userIngredient.allIngredients.count
+        if userIngredient.allIngredients.count == 0 {
+              tableView.setEmptyMessage("Add your ingredient !")
+          }
+          else {
+              self.tableView.restore()
+          }
+        return  userIngredient.allIngredients.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -118,8 +125,8 @@ extension SearchPageViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    // Use heightForFooterInSection (line) if necessary
+    // Use height For Footer In Section (line) if necessary
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return userIngredient.allIngredients.isEmpty ? 50 : 1
+        return userIngredient.allIngredients.isEmpty ? 0 : 1
     }
 }

@@ -16,9 +16,9 @@ class RecipeTableViewCell: UITableViewCell {
     @IBOutlet weak var preparationTimeLabel: UILabel!
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var yieldLabel: UILabel!
-    
+
     // MARK: - Properties
-    
+
     // Set interface
     var recipe: Recipe? {
         didSet {
@@ -34,14 +34,13 @@ class RecipeTableViewCell: UITableViewCell {
             yieldLabel.text = "\(String(describing: recipe!.yield)) yield(s)"
         }
     }
-    
+
     var recipeEntity: RecipeEntity? {
         didSet {
             titleLabel.text = recipeEntity?.title
-            preparationTimeLabel.text = "\(String(describing: recipeEntity!.time))s"
+            preparationTimeLabel.text = "\(String(describing: recipeEntity!.time!))s"
             recipeImage.image = UIImage(data: (recipeEntity?.image?.data)!)
-            yieldLabel.text = "\(String(describing: recipeEntity!.yield)) yield(s)"
-            print(yieldLabel.text!)
+            yieldLabel.text = "\(String(describing: recipeEntity!.yield!)) yield(s)"
         }
     }
 }

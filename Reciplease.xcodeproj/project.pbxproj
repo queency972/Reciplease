@@ -37,6 +37,7 @@
 		E987323224EC9B76002AD43F /* SetupButtonGetDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E987323124EC9B76002AD43F /* SetupButtonGetDirection.swift */; };
 		E9DAA0CB24CFAB2A001983C2 /* AllIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DAA0CA24CFAB2A001983C2 /* AllIngredient.swift */; };
 		E9DAA0CD24D1EF93001983C2 /* FavorisRecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DAA0CC24D1EF93001983C2 /* FavorisRecipeDetailViewController.swift */; };
+		E9E0D681250E894E00132844 /* DisplayRecipeMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E0D680250E894E00132844 /* DisplayRecipeMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		E987323124EC9B76002AD43F /* SetupButtonGetDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupButtonGetDirection.swift; sourceTree = "<group>"; };
 		E9DAA0CA24CFAB2A001983C2 /* AllIngredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllIngredient.swift; sourceTree = "<group>"; };
 		E9DAA0CC24D1EF93001983C2 /* FavorisRecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavorisRecipeDetailViewController.swift; sourceTree = "<group>"; };
+		E9E0D680250E894E00132844 /* DisplayRecipeMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayRecipeMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 				E939395A24E1986E00BCC692 /* String+Data.swift */,
 				E987322D24E37315002AD43F /* TimeFormatted.swift */,
 				E987323124EC9B76002AD43F /* SetupButtonGetDirection.swift */,
+				E9E0D680250E894E00132844 /* DisplayRecipeMessage.swift */,
 			);
 			path = Extra;
 			sourceTree = "<group>";
@@ -590,6 +593,7 @@
 				E946C6CB248B03C50096B1D7 /* UserIngredient.swift in Sources */,
 				E946C6C7248AD3740096B1D7 /* SearchPageViewController.swift in Sources */,
 				E93675ED24B7691200A0C1F2 /* RecipeTableViewCell.swift in Sources */,
+				E9E0D681250E894E00132844 /* DisplayRecipeMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

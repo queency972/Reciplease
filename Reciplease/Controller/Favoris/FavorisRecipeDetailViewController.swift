@@ -35,15 +35,22 @@ class FavoriteListViewController: UIViewController {
         guard let favoriteDetailsVC = segue.destination as?
             RecipeDetailViewController else {return}
 
-        let detailIngredients = DetailIngredients(title: recipeEntity!.title!, time: recipeEntity!.time!, ingredients: recipeEntity!.ingredients!, url: recipeEntity!.url!, yield: recipeEntity!.yield!, image: recipeEntity!.image!)
+         let detailIngredients = DetailIngredients(title: recipeEntity!.title!, time: recipeEntity!.time!, ingredients: recipeEntity!.ingredients!, url: recipeEntity!.url!, yield: recipeEntity!.yield!, image: recipeEntity!.image!)
 
         favoriteDetailsVC.detailIngredients = detailIngredients
     }
 }
 
 extension FavoriteListViewController: UITableViewDataSource, UITableViewDelegate {
+
     // Number of element in recipes.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if coreDataManager?.recipes.count == 0 {
+            tableView.setEmptyMessage("Add some recipes !")
+        }
+        else {
+            self.tableView.restore()
+        }
         return coreDataManager?.recipes.count ?? 0
     }
 
@@ -66,6 +73,6 @@ extension FavoriteListViewController: UITableViewDataSource, UITableViewDelegate
     }
     // Use heightForFooterInSection (line) if necessary
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return coreDataManager?.recipes.isEmpty ?? true ? 50 : 0
+        return coreDataManager?.recipes.isEmpty ?? true ? 0 : 1
     }
 }
