@@ -7,14 +7,13 @@
 //
 
 import UIKit
-import SDWebImage
 
 // Search Page Interface
-class SearchPageViewController: UIViewController {
+final class SearchPageViewController: UIViewController {
     
-    let userIngredient = UserIngredient()
-    let recipe = RecipeService()
-    var hits = [Hit]()
+    private let userIngredient = UserIngredient()
+    private let recipe = RecipeService()
+    private var hits = [Hit]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,10 +69,10 @@ class SearchPageViewController: UIViewController {
     
     // Run call network to get recipes.
     @IBAction func searchForRecipes(_ sender: UIButton) {
-        self.recipesLoaded(recipe: false)
+        recipesLoaded(recipe: false)
         guard !userIngredient.allIngredients.isEmpty else {
             presentAlert(title: "Oups", message: "Please enter an ingredient !")
-            self.recipesLoaded(recipe: true)
+            recipesLoaded(recipe: true)
             return
         }
         recipe.getRecipe(ingredientsFormatted: userIngredient.ingredientsString) { [weak self] result in
@@ -111,8 +110,7 @@ extension SearchPageViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if userIngredient.allIngredients.count == 0 {
               tableView.setEmptyMessage("Add your ingredient !")
-          }
-          else {
+          } else {
               self.tableView.restore()
           }
         return  userIngredient.allIngredients.count

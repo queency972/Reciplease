@@ -14,14 +14,13 @@ struct DetailIngredients {
     let ingredients: [String]
     let url: String
     let yield: String
-    var image: String
+    var image: String // Data?
 }
 
-class RecipeDetailViewController: UIViewController {
+final class RecipeDetailViewController: UIViewController {
 
     var detailIngredients: DetailIngredients?
-    var recipe: Recipe?
-    var coreDataManager: CoreDataManager?
+    private var coreDataManager: CoreDataManager?
 
     @IBOutlet weak var recipeTitleLabel: UILabel!
     @IBOutlet weak var recipeImage: UIImageView!
@@ -31,21 +30,28 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var yieldLabel: UILabel!
 
     @IBAction func addFavorisButton(_ sender: UIBarButtonItem) {
-        let totalTime = detailIngredients!.time
-        let yield = String(detailIngredients!.yield)
-        if (coreDataManager?.isRecipeRegistered(title: detailIngredients!.title))! {
+        guard let totalTime = detailIngredients?.time else {return}
+        guard let yield = detailIngredients?.yield else {return}
+        guard let title = detailIngredients?.title else {return}
+        guard let url = detailIngredients?.url else {return}
+        guard let image = detailIngredients?.image else {return}
+        guard let ingredients = detailIngredients?.ingredients else {return}
+
+        if (coreDataManager?.isRecipeRegistered(title: title))! { // A deb...
             favorisButton.tintColor = .white
             // Deleting recipe
-            coreDataManager?.deleteRecipe(title: detailIngredients!.title)
+            coreDataManager?.deleteRecipe(title: title)
         }
         else {
             favorisButton.tintColor = .yellow
-            coreDataManager?.createRecipe(title: detailIngredients!.title, ingredients: detailIngredients!.ingredients, time: totalTime, url: detailIngredients!.url, yield: yield, image: (detailIngredients!.image))
+            coreDataManager?.createRecipe(title: title, ingredients: ingredients, time: totalTime, url: url, yield: yield, image: (image))
         }
+        navigationController?.popViewController(animated: true)
     }
 
     func setColorFavorite() {
-        if (coreDataManager?.isRecipeRegistered(title: detailIngredients!.title))! {
+        guard let title = detailIngredients?.title else {return}
+        if (coreDataManager?.isRecipeRegistered(title: title))! { // A debal...
             favorisButton.tintColor = .yellow
         } else {
             favorisButton.tintColor = .white
@@ -60,10 +66,10 @@ class RecipeDetailViewController: UIViewController {
     // Button allowing to access to webSite
     @IBAction func getDirectionButton(_ sender: UIButton) {
         guard let getDirection = detailIngredients?.url else {
-            UIApplication.shared.open(URL(string: "https://www.edamam.com/404")!)
+            UIApplication.shared.open(URL(string: "https://www.edamam.com/404")!) // deb...
             return
         }
-        UIApplication.shared.open(URL(string: getDirection)!)
+        UIApplication.shared.open(URL(string: getDirection)!) // deb...
     }
 
     @IBOutlet weak var tableView: UITableView!
@@ -77,12 +83,15 @@ class RecipeDetailViewController: UIViewController {
         // On instancie le coreDataManager
         coreDataManager = CoreDataManager(coreDataStack: coredataStack)
 
+        // A metttre ds une func.
         recipeTitleLabel.text = detailIngredients?.title
-        preparationTimeLabel.text =  detailIngredients!.time
+        guard let totalTime = detailIngredients?.time else {return}
+        preparationTimeLabel.text = totalTime
 
         recipeImage.sd_setImage(with: URL(string: "\(detailIngredients?.image ?? "")"), placeholderImage: UIImage(named: "Cooking.png"))
         getDirection.setupGetDirectionButton()
-        yieldLabel.text = "\(String(describing: detailIngredients!.yield)) yield(s)"
+        guard let yield = detailIngredients?.yield else {return}
+        yieldLabel.text = "\(String(describing: yield)) yield(s)"
     }
 }
 
@@ -91,7 +100,7 @@ extension RecipeDetailViewController: UITableViewDataSource, UITableViewDelegate
 
     // number of line need
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (detailIngredients?.ingredients.count)!
+        return (detailIngredients?.ingredients.count)! // A deb..
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

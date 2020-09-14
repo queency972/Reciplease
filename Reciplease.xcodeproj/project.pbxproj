@@ -33,11 +33,11 @@
 		E97D76C824A709E600C2A3D3 /* RecipeSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97D76C724A709E600C2A3D3 /* RecipeSession.swift */; };
 		E97D76CC24AD878300C2A3D3 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97D76CB24AD878300C2A3D3 /* CoreDataStack.swift */; };
 		E97D76CF24AD87A500C2A3D3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97D76CE24AD87A500C2A3D3 /* CoreDataManager.swift */; };
-		E987322E24E37315002AD43F /* TimeFormatted.swift in Sources */ = {isa = PBXBuildFile; fileRef = E987322D24E37315002AD43F /* TimeFormatted.swift */; };
-		E987323224EC9B76002AD43F /* SetupButtonGetDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E987323124EC9B76002AD43F /* SetupButtonGetDirection.swift */; };
+		E987322E24E37315002AD43F /* Int+TimeFormatted.swift in Sources */ = {isa = PBXBuildFile; fileRef = E987322D24E37315002AD43F /* Int+TimeFormatted.swift */; };
+		E987323224EC9B76002AD43F /* UIButton+SetupButtonGetDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E987323124EC9B76002AD43F /* UIButton+SetupButtonGetDirection.swift */; };
 		E9DAA0CB24CFAB2A001983C2 /* AllIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DAA0CA24CFAB2A001983C2 /* AllIngredient.swift */; };
 		E9DAA0CD24D1EF93001983C2 /* FavorisRecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DAA0CC24D1EF93001983C2 /* FavorisRecipeDetailViewController.swift */; };
-		E9E0D681250E894E00132844 /* DisplayRecipeMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E0D680250E894E00132844 /* DisplayRecipeMessage.swift */; };
+		E9E0D681250E894E00132844 /* UITableView+DisplayRecipeMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E0D680250E894E00132844 /* UITableView+DisplayRecipeMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,11 +96,11 @@
 		E97D76C724A709E600C2A3D3 /* RecipeSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSession.swift; sourceTree = "<group>"; };
 		E97D76CB24AD878300C2A3D3 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		E97D76CE24AD87A500C2A3D3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		E987322D24E37315002AD43F /* TimeFormatted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatted.swift; sourceTree = "<group>"; };
-		E987323124EC9B76002AD43F /* SetupButtonGetDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupButtonGetDirection.swift; sourceTree = "<group>"; };
+		E987322D24E37315002AD43F /* Int+TimeFormatted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+TimeFormatted.swift"; sourceTree = "<group>"; };
+		E987323124EC9B76002AD43F /* UIButton+SetupButtonGetDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+SetupButtonGetDirection.swift"; sourceTree = "<group>"; };
 		E9DAA0CA24CFAB2A001983C2 /* AllIngredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllIngredient.swift; sourceTree = "<group>"; };
 		E9DAA0CC24D1EF93001983C2 /* FavorisRecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavorisRecipeDetailViewController.swift; sourceTree = "<group>"; };
-		E9E0D680250E894E00132844 /* DisplayRecipeMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayRecipeMessage.swift; sourceTree = "<group>"; };
+		E9E0D680250E894E00132844 /* UITableView+DisplayRecipeMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+DisplayRecipeMessage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,9 +166,9 @@
 				E946C6D3248B54F30096B1D7 /* UIViewController+alert.swift */,
 				E946C6D5248B57E10096B1D7 /* String+containsSpecialCharacter.swift */,
 				E939395A24E1986E00BCC692 /* String+Data.swift */,
-				E987322D24E37315002AD43F /* TimeFormatted.swift */,
-				E987323124EC9B76002AD43F /* SetupButtonGetDirection.swift */,
-				E9E0D680250E894E00132844 /* DisplayRecipeMessage.swift */,
+				E987322D24E37315002AD43F /* Int+TimeFormatted.swift */,
+				E987323124EC9B76002AD43F /* UIButton+SetupButtonGetDirection.swift */,
+				E9E0D680250E894E00132844 /* UITableView+DisplayRecipeMessage.swift */,
 			);
 			path = Extra;
 			sourceTree = "<group>";
@@ -574,9 +574,9 @@
 			files = (
 				E97D76C824A709E600C2A3D3 /* RecipeSession.swift in Sources */,
 				E9752D77247DC44D009467A3 /* Reciplease.xcdatamodeld in Sources */,
-				E987323224EC9B76002AD43F /* SetupButtonGetDirection.swift in Sources */,
+				E987323224EC9B76002AD43F /* UIButton+SetupButtonGetDirection.swift in Sources */,
 				E946C6D6248B57E10096B1D7 /* String+containsSpecialCharacter.swift in Sources */,
-				E987322E24E37315002AD43F /* TimeFormatted.swift in Sources */,
+				E987322E24E37315002AD43F /* Int+TimeFormatted.swift in Sources */,
 				E97D76CF24AD87A500C2A3D3 /* CoreDataManager.swift in Sources */,
 				E946C6D8248C14CC0096B1D7 /* SearchResultViewController.swift in Sources */,
 				E9752D6D247DC44D009467A3 /* AppDelegate.swift in Sources */,
@@ -593,7 +593,7 @@
 				E946C6CB248B03C50096B1D7 /* UserIngredient.swift in Sources */,
 				E946C6C7248AD3740096B1D7 /* SearchPageViewController.swift in Sources */,
 				E93675ED24B7691200A0C1F2 /* RecipeTableViewCell.swift in Sources */,
-				E9E0D681250E894E00132844 /* DisplayRecipeMessage.swift in Sources */,
+				E9E0D681250E894E00132844 /* UITableView+DisplayRecipeMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

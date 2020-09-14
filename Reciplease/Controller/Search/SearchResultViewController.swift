@@ -9,9 +9,9 @@
 import UIKit
 
 // Search Result Interface
-class SearchResultViewController: UIViewController {
+final class SearchResultViewController: UIViewController {
     var hits = [Hit]()
-    var selectedRecipe: Recipe?
+    private var selectedRecipe: Recipe?
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -24,8 +24,15 @@ class SearchResultViewController: UIViewController {
     // Transition, data controller to controller (Prepare Seg)
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let recipeDetailVC = segue.destination as? RecipeDetailViewController else {return}
-        //recipeDetailVC.recipe = selectedRecipe
-        let networkDetailIngredients = DetailIngredients(title: selectedRecipe!.label, time: selectedRecipe!.totalTime.timeInSecondsToString, ingredients: selectedRecipe!.ingredientLines, url: selectedRecipe!.shareAs, yield: String(selectedRecipe!.yield), image: selectedRecipe!.image)
+
+        guard let title = selectedRecipe?.label else {return}
+        guard let time = selectedRecipe?.totalTime else {return}
+        guard let ingredients = selectedRecipe?.ingredientLines else {return}
+        guard let url = selectedRecipe?.shareAs else {return}
+        guard let yield = selectedRecipe?.yield else {return}
+        guard let image = selectedRecipe?.image else {return}
+
+        let networkDetailIngredients = DetailIngredients(title: title, time: time.timeInSecondsToString, ingredients: ingredients, url: url, yield: String(yield), image: image)
         
         recipeDetailVC.detailIngredients = networkDetailIngredients
     }

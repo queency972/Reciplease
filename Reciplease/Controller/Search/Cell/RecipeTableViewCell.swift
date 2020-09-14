@@ -10,7 +10,9 @@ import UIKit
 import SDWebImage
 
 // Set interface
-class RecipeTableViewCell: UITableViewCell {
+final class RecipeTableViewCell: UITableViewCell {
+
+    // MARK: - Outlets
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var preparationTimeLabel: UILabel!
@@ -24,23 +26,28 @@ class RecipeTableViewCell: UITableViewCell {
         didSet {
             let seconde: Int = 60
             titleLabel.text = recipe?.label
-            if recipe!.totalTime < seconde {
-                preparationTimeLabel.text = "\(String(describing: recipe!.totalTime))s"
+            guard let recipeTime = recipe?.totalTime else {return}
+            guard let yield = recipe?.yield else {return}
+            if recipeTime < seconde {
+                preparationTimeLabel.text = "\(String(describing: recipeTime))s"
             }
             else {
-                preparationTimeLabel.text = "\(recipe!.totalTime.timeInSecondsToString)m"
+                preparationTimeLabel.text = "\(recipeTime.timeInSecondsToString)m"
             }
             recipeImage.sd_setImage(with: URL(string: "\(recipe?.image ?? "")"), placeholderImage: UIImage(named: "Cooking.png"))
-            yieldLabel.text = "\(String(describing: recipe!.yield)) yield(s)"
+            yieldLabel.text = "\(String(describing: yield)) yield(s)"
         }
     }
 
     var recipeEntity: RecipeEntity? {
         didSet {
             titleLabel.text = recipeEntity?.title
-            preparationTimeLabel.text = "\(String(describing: recipeEntity!.time!))s"
+            guard let recipeTime = recipeEntity?.time else {return}
+            preparationTimeLabel.text = "\(String(describing: recipeTime))s"
+            //guard let recipeImage = recipeEntity?.image?.data else {return}
             recipeImage.image = UIImage(data: (recipeEntity?.image?.data)!)
-            yieldLabel.text = "\(String(describing: recipeEntity!.yield!)) yield(s)"
+            guard let recipeYield = recipeEntity?.yield else {return}
+            yieldLabel.text = "\(String(describing: recipeYield)) yield(s)"
         }
     }
 }

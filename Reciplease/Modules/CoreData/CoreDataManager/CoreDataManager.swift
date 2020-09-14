@@ -14,7 +14,6 @@ final class CoreDataManager {
     // MARK: - Properties
     private let coreDataStack: CoreDataStack
     private let managedObjectContext: NSManagedObjectContext
-    // private let favorite = RecipeDetailViewController()
     
     var recipes: [RecipeEntity] {
         let request: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
@@ -62,6 +61,5 @@ final class CoreDataManager {
         guard let recipeEntity = recipesEntities.first else {return}
         managedObjectContext.delete(recipeEntity)
         try? managedObjectContext.save()
-
     }
 }

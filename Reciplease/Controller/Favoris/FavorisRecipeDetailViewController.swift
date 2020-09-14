@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FavoriteListViewController: UIViewController {
+final class FavoriteListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -34,8 +34,14 @@ class FavoriteListViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let favoriteDetailsVC = segue.destination as?
             RecipeDetailViewController else {return}
+               guard let totalTime = recipeEntity?.time else {return}
+               guard let yield = recipeEntity?.yield else {return}
+               guard let title = recipeEntity?.title else {return}
+               guard let url = recipeEntity?.url else {return}
+               guard let image = recipeEntity?.image else {return}
+               guard let ingredients = recipeEntity?.ingredients else {return}
 
-         let detailIngredients = DetailIngredients(title: recipeEntity!.title!, time: recipeEntity!.time!, ingredients: recipeEntity!.ingredients!, url: recipeEntity!.url!, yield: recipeEntity!.yield!, image: recipeEntity!.image!)
+         let detailIngredients = DetailIngredients(title: title, time: totalTime, ingredients: ingredients, url: url, yield: yield, image: image)
 
         favoriteDetailsVC.detailIngredients = detailIngredients
     }
@@ -47,8 +53,7 @@ extension FavoriteListViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if coreDataManager?.recipes.count == 0 {
             tableView.setEmptyMessage("Add some recipes !")
-        }
-        else {
+        } else {
             self.tableView.restore()
         }
         return coreDataManager?.recipes.count ?? 0
