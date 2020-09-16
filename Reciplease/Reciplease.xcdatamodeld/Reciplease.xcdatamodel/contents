@@ -2,7 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="RecipeEntity" representedClassName=".RecipeEntity" syncable="YES" codeGenerationType="class">
         <attribute name="favorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="image" optional="YES" attributeType="Binary"/>
         <attribute name="ingredients" optional="YES" attributeType="Transformable" customClassName="[String]"/>
         <attribute name="time" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>

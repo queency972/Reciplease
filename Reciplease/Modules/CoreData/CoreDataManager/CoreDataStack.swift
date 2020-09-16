@@ -11,7 +11,6 @@ import CoreData
 
 public class CoreDataStack {
 
-
     // MARK: - Properties
 
        private let modelName: String
@@ -21,7 +20,6 @@ public class CoreDataStack {
        public init(modelName: String) {
            self.modelName = modelName
        }
-
 
     // MARK: - Core Data stack
 

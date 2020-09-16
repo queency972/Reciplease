@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RecipeService: UrlEncoder {
+final class RecipeService: UrlEncoder {
 
     // MARK: - Enum.
 

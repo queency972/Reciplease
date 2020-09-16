@@ -10,11 +10,15 @@ import UIKit
 
 // Search Result Interface
 final class SearchResultViewController: UIViewController {
+
+    // MARK: - Properties
     var hits = [Hit]()
     private var selectedRecipe: Recipe?
-    
+
+    // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
-    
+
+    // MARK: - Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         // Import XIB (Create class of Xib)
@@ -32,7 +36,7 @@ final class SearchResultViewController: UIViewController {
         guard let yield = selectedRecipe?.yield else {return}
         guard let image = selectedRecipe?.image else {return}
 
-        let networkDetailIngredients = DetailIngredients(title: title, time: time.timeInSecondsToString, ingredients: ingredients, url: url, yield: String(yield), image: image)
+        let networkDetailIngredients = DetailIngredients(title: title, time: time.timeInSecondsToString, ingredients: ingredients, url: url, yield: String(yield), image: image.data)
         
         recipeDetailVC.detailIngredients = networkDetailIngredients
     }
@@ -51,10 +55,10 @@ extension SearchResultViewController: UITableViewDataSource, UITableViewDelegate
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 196
+        return 190
     }
     
-    //    // Allowing to get information for the cell Selected from XIB.
+    // Allowing to get information for the cell Selected from XIB.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedRecipe = hits[indexPath.row].recipe
         // Run transition.

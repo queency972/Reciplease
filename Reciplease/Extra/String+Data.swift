@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK: - Extension String
 extension String {
@@ -18,11 +19,8 @@ extension String {
     }
 }
 
+// Convert Data to UIImage
 extension Data {
-    var utf8String: String? {
-        return string(as: .utf8)
-    }
-    func string(as encoding: String.Encoding) -> String? {
-        return String(data: self, encoding: encoding)
-    }
+    var uiImage: UIImage? { UIImage(data: self) }
 }
+

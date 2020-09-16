@@ -34,6 +34,7 @@ final class FavoriteListViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let favoriteDetailsVC = segue.destination as?
             RecipeDetailViewController else {return}
+        
                guard let totalTime = recipeEntity?.time else {return}
                guard let yield = recipeEntity?.yield else {return}
                guard let title = recipeEntity?.title else {return}

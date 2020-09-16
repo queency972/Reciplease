@@ -24,7 +24,7 @@ final class UserIngredient {
         return allIngredients.isEmpty
     }
     
-    // MARK: - Public Methods
+    // MARK: - Methods
     
     // Add a new ingredient to the array
     func addIngredient(_ ingredients: String)   {
@@ -35,4 +35,8 @@ final class UserIngredient {
     func resetIngredients() {
         allIngredients = [String]()
     }
+    // Remove ingredient
+    func removeIngredient(at index: Int) {
+         allIngredients.remove(at: index)
+     }
 }

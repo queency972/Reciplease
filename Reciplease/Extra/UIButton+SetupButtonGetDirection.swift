@@ -11,8 +11,8 @@ import UIKit
 
 extension UIButton {
     func setupGetDirectionButton() {
-          layer.cornerRadius = 5
-          layer.borderWidth = 1
-          layer.borderColor = UIColor.black.cgColor
-       }
+        layer.cornerRadius = 5
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.black.cgColor
+    }
 }

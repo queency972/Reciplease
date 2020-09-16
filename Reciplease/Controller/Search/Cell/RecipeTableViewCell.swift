@@ -19,9 +19,14 @@ final class RecipeTableViewCell: UITableViewCell {
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var yieldLabel: UILabel!
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        gradientImage()
+    }
+
     // MARK: - Properties
 
-    // Set interface
+    // Set interface from network
     var recipe: Recipe? {
         didSet {
             let seconde: Int = 60
@@ -38,16 +43,25 @@ final class RecipeTableViewCell: UITableViewCell {
             yieldLabel.text = "\(String(describing: yield)) yield(s)"
         }
     }
-
+     // Set interface from Coredata
     var recipeEntity: RecipeEntity? {
         didSet {
             titleLabel.text = recipeEntity?.title
             guard let recipeTime = recipeEntity?.time else {return}
             preparationTimeLabel.text = "\(String(describing: recipeTime))s"
-            //guard let recipeImage = recipeEntity?.image?.data else {return}
-            recipeImage.image = UIImage(data: (recipeEntity?.image?.data)!)
+            guard let recipesImage = recipeEntity?.image else {return}
+            recipeImage.image = UIImage(data: (recipesImage))
             guard let recipeYield = recipeEntity?.yield else {return}
             yieldLabel.text = "\(String(describing: recipeYield)) yield(s)"
         }
+    }
+
+    func gradientImage() {
+        let gradient = CAGradientLayer()
+        gradient.frame = CGRect(x: 0, y: 55, width: frame.width.advanced(by: 25), height: frame.height.advanced(by: 0))
+        gradient.colors = [UIColor.white.cgColor.alpha, UIColor.black.cgColor]
+        gradient.startPoint = CGPoint(x: 0.0, y: 0.1)
+        gradient.endPoint = CGPoint(x: 0.0, y: 0.9)
+        recipeImage.layer.insertSublayer(gradient, at: 0)
     }
 }

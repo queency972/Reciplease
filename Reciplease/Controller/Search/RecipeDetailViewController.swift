@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 struct DetailIngredients {
     let title: String
@@ -14,7 +15,7 @@ struct DetailIngredients {
     let ingredients: [String]
     let url: String
     let yield: String
-    var image: String // Data?
+    var image: Data?
 }
 
 final class RecipeDetailViewController: UIViewController {
@@ -22,6 +23,7 @@ final class RecipeDetailViewController: UIViewController {
     var detailIngredients: DetailIngredients?
     private var coreDataManager: CoreDataManager?
 
+    // MARK: - Oulets
     @IBOutlet weak var recipeTitleLabel: UILabel!
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var preparationTimeLabel: UILabel!
@@ -29,6 +31,7 @@ final class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var favorisButton: UIBarButtonItem!
     @IBOutlet weak var yieldLabel: UILabel!
 
+    // MARK: - Funtions
     @IBAction func addFavorisButton(_ sender: UIBarButtonItem) {
         guard let totalTime = detailIngredients?.time else {return}
         guard let yield = detailIngredients?.yield else {return}
@@ -37,27 +40,35 @@ final class RecipeDetailViewController: UIViewController {
         guard let image = detailIngredients?.image else {return}
         guard let ingredients = detailIngredients?.ingredients else {return}
 
-        if (coreDataManager?.isRecipeRegistered(title: title))! { // A deb...
+        guard let isRecipeRegistred = coreDataManager?.isRecipeRegistered(title: title) else {return}
+        if (isRecipeRegistred) {
             favorisButton.tintColor = .white
             // Deleting recipe
             coreDataManager?.deleteRecipe(title: title)
+            guard let controller = self.navigationController?.viewControllers else {return}
+            // navigationController.popToViewController to display a specific ViewController.
+            for controller in controller as Array {
+                if controller.isKind(of: FavoriteListViewController.self) {
+                    self.navigationController!.popToViewController(controller, animated: true)
+                    break
+                }
+            }
         }
         else {
             favorisButton.tintColor = .yellow
             coreDataManager?.createRecipe(title: title, ingredients: ingredients, time: totalTime, url: url, yield: yield, image: (image))
         }
-        navigationController?.popViewController(animated: true)
     }
 
     func setColorFavorite() {
         guard let title = detailIngredients?.title else {return}
-        if (coreDataManager?.isRecipeRegistered(title: title))! { // A debal...
+        guard let isRecipeRegistered = coreDataManager?.isRecipeRegistered(title: title) else {return}
+        if (isRecipeRegistered) {
             favorisButton.tintColor = .yellow
         } else {
             favorisButton.tintColor = .white
         }
     }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setColorFavorite()
@@ -65,33 +76,44 @@ final class RecipeDetailViewController: UIViewController {
 
     // Button allowing to access to webSite
     @IBAction func getDirectionButton(_ sender: UIButton) {
+        guard let urlError = URL(string: "https://www.edamam.com/404") else {return}
         guard let getDirection = detailIngredients?.url else {
-            UIApplication.shared.open(URL(string: "https://www.edamam.com/404")!) // deb...
+            UIApplication.shared.open(urlError)
             return
         }
-        UIApplication.shared.open(URL(string: getDirection)!) // deb...
+        guard let getUrl = URL(string: getDirection) else {return}
+        UIApplication.shared.open(getUrl)
     }
 
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        gradientImage()
         // On Recupere Appdelage ds l'application
         guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         // On recupere le CoreDataSt qui se trouve ds l'appdelegate
         let coredataStack = appdelegate.coreDataStack
         // On instancie le coreDataManager
         coreDataManager = CoreDataManager(coreDataStack: coredataStack)
+        setInterface()
+    }
 
-        // A metttre ds une func.
+    func setInterface() {
         recipeTitleLabel.text = detailIngredients?.title
         guard let totalTime = detailIngredients?.time else {return}
         preparationTimeLabel.text = totalTime
-
-        recipeImage.sd_setImage(with: URL(string: "\(detailIngredients?.image ?? "")"), placeholderImage: UIImage(named: "Cooking.png"))
+        recipeImage.image = detailIngredients?.image?.uiImage
         getDirection.setupGetDirectionButton()
         guard let yield = detailIngredients?.yield else {return}
         yieldLabel.text = "\(String(describing: yield)) yield(s)"
+    }
+
+    func gradientImage() {
+        let gradient = CAGradientLayer()
+        gradient.frame = recipeImage.bounds
+        gradient.colors = [UIColor.white.cgColor.alpha, UIColor.black.cgColor]
+        recipeImage.layer.insertSublayer(gradient, at: 0)
     }
 }
 
@@ -100,7 +122,8 @@ extension RecipeDetailViewController: UITableViewDataSource, UITableViewDelegate
 
     // number of line need
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (detailIngredients?.ingredients.count)! // A deb..
+        let ingredient = detailIngredients?.ingredients
+        return ingredient?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
