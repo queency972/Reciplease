@@ -45,6 +45,7 @@ final class FavoriteListViewController: UIViewController {
          let detailIngredients = DetailIngredients(title: title, time: totalTime, ingredients: ingredients, url: url, yield: yield, image: image)
 
         favoriteDetailsVC.detailIngredients = detailIngredients
+        favoriteDetailsVC.comeFromFavorite = true
     }
 }
 

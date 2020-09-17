@@ -20,7 +20,7 @@
                         <rect key="frame" x="15" y="11" width="290" height="94"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Pizza" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKw-Fn-DAb">
-                        <rect key="frame" x="31" y="80.5" width="190" height="19.5"/>
+                        <rect key="frame" x="31" y="55.5" width="190" height="19.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="190" id="5KF-Ru-Zzz"/>
                         </constraints>
@@ -35,7 +35,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="ERo-9v-iSm">
-                        <rect key="frame" x="276.5" y="70" width="8.5" height="30"/>
+                        <rect key="frame" x="276.5" y="45" width="8.5" height="30"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZD9-d0-bkw">
                                 <rect key="frame" x="0.0" y="0.0" width="8.5" height="14.5"/>
@@ -51,30 +51,42 @@
                             </label>
                         </subviews>
                     </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Egg, Lemon..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F5H-Lt-eAd">
+                        <rect key="frame" x="30" y="89.5" width="255" height="13.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="255" id="Iff-Jg-Q7G"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
+                        <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="JKw-Fn-DAb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="31" id="00I-UK-gUe"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="F5H-Lt-eAd" secondAttribute="bottom" constant="2" id="0xb-i1-pu1"/>
                     <constraint firstItem="sIU-RW-5ZG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="Eez-d9-gMg"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Pqh-3d-sZY" secondAttribute="trailing" id="LFY-Uh-ZDh"/>
                     <constraint firstAttribute="bottomMargin" secondItem="sIU-RW-5ZG" secondAttribute="bottom" constant="10" id="QHe-2f-e3h"/>
+                    <constraint firstItem="F5H-Lt-eAd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="aPU-lX-3RN"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Pqh-3d-sZY" secondAttribute="bottom" id="al2-ma-xO7"/>
                     <constraint firstItem="Pqh-3d-sZY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="cHM-Wk-cvQ"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="JKw-Fn-DAb" secondAttribute="bottom" constant="5" id="md7-nt-qur"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="JKw-Fn-DAb" secondAttribute="bottom" constant="30" id="md7-nt-qur"/>
                     <constraint firstAttribute="trailingMargin" secondItem="ERo-9v-iSm" secondAttribute="trailing" constant="20" id="pBG-iE-tFM"/>
                     <constraint firstItem="Pqh-3d-sZY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="t97-He-fUW"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="ERo-9v-iSm" secondAttribute="bottom" constant="5" id="zYt-cA-GbT"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="ERo-9v-iSm" secondAttribute="bottom" constant="30" id="zYt-cA-GbT"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="detailLabel" destination="sIU-RW-5ZG" id="1xg-NO-CgD"/>
+                <outlet property="ingredientsListLabel" destination="F5H-Lt-eAd" id="XIy-1b-YhG"/>
                 <outlet property="preparationTimeLabel" destination="ZD9-d0-bkw" id="7V8-yh-3vJ"/>
                 <outlet property="recipeImage" destination="Pqh-3d-sZY" id="sxT-Oh-rww"/>
                 <outlet property="titleLabel" destination="JKw-Fn-DAb" id="Tiv-Ar-9ji"/>
                 <outlet property="yieldLabel" destination="l8m-Fc-OTy" id="6FG-cq-tF6"/>
             </connections>
-            <point key="canvasLocation" x="-157" y="27"/>
+            <point key="canvasLocation" x="-158.40000000000001" y="26.986506746626688"/>
         </tableViewCell>
     </objects>
     <resources>

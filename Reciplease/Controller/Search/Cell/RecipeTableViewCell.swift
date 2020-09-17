@@ -18,6 +18,7 @@ final class RecipeTableViewCell: UITableViewCell {
     @IBOutlet weak var preparationTimeLabel: UILabel!
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var yieldLabel: UILabel!
+    @IBOutlet weak var ingredientsListLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,18 +30,14 @@ final class RecipeTableViewCell: UITableViewCell {
     // Set interface from network
     var recipe: Recipe? {
         didSet {
-            let seconde: Int = 60
             titleLabel.text = recipe?.label
             guard let recipeTime = recipe?.totalTime else {return}
             guard let yield = recipe?.yield else {return}
-            if recipeTime < seconde {
-                preparationTimeLabel.text = "\(String(describing: recipeTime))s"
-            }
-            else {
-                preparationTimeLabel.text = "\(recipeTime.timeInSecondsToString)m"
-            }
+            preparationTimeLabel.text = "\(String(describing: recipeTime.timeInSecondsToString))s"
             recipeImage.sd_setImage(with: URL(string: "\(recipe?.image ?? "")"), placeholderImage: UIImage(named: "Cooking.png"))
             yieldLabel.text = "\(String(describing: yield)) yield(s)"
+            guard let ingredients = recipe?.ingredientLines.joined(separator: "\n- ") else {return}
+            ingredientsListLabel.text = "\(ingredients)"
         }
     }
      // Set interface from Coredata
@@ -53,6 +50,8 @@ final class RecipeTableViewCell: UITableViewCell {
             recipeImage.image = UIImage(data: (recipesImage))
             guard let recipeYield = recipeEntity?.yield else {return}
             yieldLabel.text = "\(String(describing: recipeYield)) yield(s)"
+            guard let ingredients = recipeEntity?.ingredients?.joined(separator: "\n- ") else {return}
+            ingredientsListLabel.text = ingredients
         }
     }
 

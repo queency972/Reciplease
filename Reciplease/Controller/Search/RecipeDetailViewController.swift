@@ -22,6 +22,7 @@ final class RecipeDetailViewController: UIViewController {
 
     var detailIngredients: DetailIngredients?
     private var coreDataManager: CoreDataManager?
+    var comeFromFavorite: Bool = false 
 
     // MARK: - Oulets
     @IBOutlet weak var recipeTitleLabel: UILabel!
@@ -45,13 +46,8 @@ final class RecipeDetailViewController: UIViewController {
             favorisButton.tintColor = .white
             // Deleting recipe
             coreDataManager?.deleteRecipe(title: title)
-            guard let controller = self.navigationController?.viewControllers else {return}
-            // navigationController.popToViewController to display a specific ViewController.
-            for controller in controller as Array {
-                if controller.isKind(of: FavoriteListViewController.self) {
-                    self.navigationController!.popToViewController(controller, animated: true)
-                    break
-                }
+            if comeFromFavorite {
+                navigationController?.popViewController(animated: true)
             }
         }
         else {

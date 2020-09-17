@@ -28,14 +28,12 @@ final class SearchPageViewController: UIViewController {
     @IBOutlet weak var searchForRecipes: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    
+     // MARK: - Functions
     @IBAction func clearIngredientButton(_ sender: UIButton) {
         userIngredient.resetIngredients()
         // Allowing to reload TableView
         tableView.reloadData()
     }
-    
-    // MARK: - Functions
     
     // Dismiss the keyboard
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
@@ -104,6 +102,7 @@ final class SearchPageViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let searchResultVC = segue.destination as? SearchResultViewController else {return}
         searchResultVC.hits = hits
+    
     }
 }
 

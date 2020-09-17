@@ -39,6 +39,7 @@ final class SearchResultViewController: UIViewController {
         let networkDetailIngredients = DetailIngredients(title: title, time: time.timeInSecondsToString, ingredients: ingredients, url: url, yield: String(yield), image: image.data)
         
         recipeDetailVC.detailIngredients = networkDetailIngredients
+        recipeDetailVC.comeFromFavorite = false
     }
 }
 
