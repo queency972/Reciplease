@@ -70,7 +70,7 @@ extension FavoriteListViewController: UITableViewDataSource, UITableViewDelegate
     }
     // Set height of the cell
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 250
     }
     // Allowing to get information for the cell Selected from XIB.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

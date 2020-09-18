@@ -56,7 +56,7 @@ extension SearchResultViewController: UITableViewDataSource, UITableViewDelegate
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 190
+        return 250
     }
     
     // Allowing to get information for the cell Selected from XIB.

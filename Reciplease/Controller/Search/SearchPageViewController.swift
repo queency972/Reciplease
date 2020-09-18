@@ -34,12 +34,11 @@ final class SearchPageViewController: UIViewController {
         // Allowing to reload TableView
         tableView.reloadData()
     }
-    
-    // Dismiss the keyboard
+
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        tableView.resignFirstResponder()
+        ingredientTextField.resignFirstResponder()
     }
-    
+
     // Allowing to add ingredient in the list.
     @IBAction func addIngredientButton(_ sender: UIButton) {
         // Check if inputIngredient is not empty.

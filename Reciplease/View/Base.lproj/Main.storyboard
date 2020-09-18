@@ -193,7 +193,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pasta Salad" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWb-9d-qcS">
-                                <rect key="frame" x="20" y="218" width="335" height="27.666666666666657"/>
+                                <rect key="frame" x="20" y="228" width="335" height="27.666666666666657"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                 <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -220,7 +220,7 @@
                         <constraints>
                             <constraint firstItem="UYK-jQ-Z9C" firstAttribute="leading" secondItem="wGw-TV-BMn" secondAttribute="leading" id="3d0-qZ-OxM"/>
                             <constraint firstItem="wGw-TV-BMn" firstAttribute="bottom" secondItem="WY4-WL-fNu" secondAttribute="bottom" constant="3" id="4hf-tO-SQx"/>
-                            <constraint firstItem="QWb-9d-qcS" firstAttribute="top" secondItem="wGw-TV-BMn" secondAttribute="top" constant="130" id="7Ag-Q7-Vch"/>
+                            <constraint firstItem="QWb-9d-qcS" firstAttribute="top" secondItem="wGw-TV-BMn" secondAttribute="top" constant="140" id="7Ag-Q7-Vch"/>
                             <constraint firstItem="UYK-jQ-Z9C" firstAttribute="top" secondItem="wGw-TV-BMn" secondAttribute="top" constant="254" id="Avq-oW-Ivy"/>
                             <constraint firstItem="WY4-WL-fNu" firstAttribute="leading" secondItem="wGw-TV-BMn" secondAttribute="leading" constant="20" id="Cdp-oc-wyX"/>
                             <constraint firstItem="UYK-jQ-Z9C" firstAttribute="trailing" secondItem="wGw-TV-BMn" secondAttribute="trailing" id="DAa-Nb-cd1"/>
@@ -301,7 +301,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Egg, Tomatoe, Lemon..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kPw-dS-isj" userLabel="Text Field">
                                         <rect key="frame" x="0.0" y="0.0" width="244" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="name"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gpx-AP-hUv" userLabel="AddButton">
                                         <rect key="frame" x="270" y="0.0" width="25" height="34"/>
@@ -345,18 +345,21 @@
                                     <outlet property="delegate" destination="fs9-Gb-Lpm" id="T3s-PZ-94u"/>
                                 </connections>
                             </tableView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="xkk-ZB-lUt">
-                                <rect key="frame" x="177" y="684" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="xkk-ZB-lUt">
+                                <rect key="frame" x="177" y="684" width="21" height="20"/>
                                 <color key="color" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="CXy-hu-m5J" firstAttribute="top" secondItem="YsA-bf-cZE" secondAttribute="bottom" constant="31" id="5cj-Ri-cRx"/>
                             <constraint firstItem="CXy-hu-m5J" firstAttribute="leading" secondItem="TuJ-ej-DKJ" secondAttribute="leading" id="9AT-F0-QDg"/>
+                            <constraint firstItem="TuJ-ej-DKJ" firstAttribute="trailing" secondItem="xkk-ZB-lUt" secondAttribute="trailing" constant="177" id="9Pf-TQ-B48"/>
                             <constraint firstItem="iKR-pv-zvv" firstAttribute="top" secondItem="7qc-Bn-yuj" secondAttribute="bottom" constant="20" id="AtL-xB-SLt"/>
+                            <constraint firstItem="TuJ-ej-DKJ" firstAttribute="bottom" secondItem="xkk-ZB-lUt" secondAttribute="bottom" constant="25" id="MDb-76-nVt"/>
                             <constraint firstItem="iKR-pv-zvv" firstAttribute="leading" secondItem="TuJ-ej-DKJ" secondAttribute="leading" constant="40" id="PQv-rg-Lre"/>
+                            <constraint firstItem="xkk-ZB-lUt" firstAttribute="leading" secondItem="TuJ-ej-DKJ" secondAttribute="leading" constant="177" id="QIA-UT-sXi"/>
                             <constraint firstItem="YsA-bf-cZE" firstAttribute="leading" secondItem="TuJ-ej-DKJ" secondAttribute="leading" constant="20" id="QLb-JB-8QQ"/>
                             <constraint firstItem="uVq-2h-Vav" firstAttribute="leading" secondItem="TuJ-ej-DKJ" secondAttribute="leading" constant="20" id="QSC-uw-9am"/>
                             <constraint firstItem="YsA-bf-cZE" firstAttribute="top" secondItem="iKR-pv-zvv" secondAttribute="bottom" constant="20" id="SSz-2b-d0e"/>
@@ -369,8 +372,12 @@
                             <constraint firstItem="TuJ-ej-DKJ" firstAttribute="trailing" secondItem="iKR-pv-zvv" secondAttribute="trailing" constant="40" id="o1e-YW-4q7"/>
                             <constraint firstItem="uVq-2h-Vav" firstAttribute="top" secondItem="CXy-hu-m5J" secondAttribute="bottom" constant="10" id="rx4-Eo-8Dl"/>
                             <constraint firstItem="TuJ-ej-DKJ" firstAttribute="trailing" secondItem="7qc-Bn-yuj" secondAttribute="trailing" constant="20" id="uwU-jD-Mj2"/>
+                            <constraint firstItem="xkk-ZB-lUt" firstAttribute="top" secondItem="CXy-hu-m5J" secondAttribute="bottom" constant="25" id="yYh-W3-eLg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TuJ-ej-DKJ"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="cK6-WM-kwc" appends="YES" id="KIq-dw-jSs"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Reciplease" id="lUw-1t-Ced"/>
                     <connections>
@@ -384,7 +391,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="quq-EJ-fCl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="cK6-WM-kwc">
                     <connections>
-                        <action selector="dismissKeyboard:" destination="fs9-Gb-Lpm" id="dHX-5H-eqa"/>
+                        <action selector="dismissKeyboard:" destination="fs9-Gb-Lpm" id="5Rp-Pb-lHl"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

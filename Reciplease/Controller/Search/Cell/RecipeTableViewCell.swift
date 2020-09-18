@@ -20,11 +20,6 @@ final class RecipeTableViewCell: UITableViewCell {
     @IBOutlet weak var yieldLabel: UILabel!
     @IBOutlet weak var ingredientsListLabel: UILabel!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        gradientImage()
-    }
-
     // MARK: - Properties
 
     // Set interface from network
@@ -53,14 +48,5 @@ final class RecipeTableViewCell: UITableViewCell {
             guard let ingredients = recipeEntity?.ingredients?.joined(separator: "\n- ") else {return}
             ingredientsListLabel.text = ingredients
         }
-    }
-
-    func gradientImage() {
-        let gradient = CAGradientLayer()
-        gradient.frame = CGRect(x: 0, y: 55, width: frame.width.advanced(by: 25), height: frame.height.advanced(by: 0))
-        gradient.colors = [UIColor.white.cgColor.alpha, UIColor.black.cgColor]
-        gradient.startPoint = CGPoint(x: 0.0, y: 0.1)
-        gradient.endPoint = CGPoint(x: 0.0, y: 0.9)
-        recipeImage.layer.insertSublayer(gradient, at: 0)
     }
 }

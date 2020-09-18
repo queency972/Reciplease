@@ -85,7 +85,6 @@ final class RecipeDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        gradientImage()
         // On Recupere Appdelage ds l'application
         guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         // On recupere le CoreDataSt qui se trouve ds l'appdelegate
@@ -103,13 +102,6 @@ final class RecipeDetailViewController: UIViewController {
         getDirection.setupGetDirectionButton()
         guard let yield = detailIngredients?.yield else {return}
         yieldLabel.text = "\(String(describing: yield)) yield(s)"
-    }
-
-    func gradientImage() {
-        let gradient = CAGradientLayer()
-        gradient.frame = recipeImage.bounds
-        gradient.colors = [UIColor.white.cgColor.alpha, UIColor.black.cgColor]
-        recipeImage.layer.insertSublayer(gradient, at: 0)
     }
 }
 
