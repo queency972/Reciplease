@@ -22,6 +22,13 @@
 		E946C6DA248C153C0096B1D7 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E946C6D9248C153C0096B1D7 /* RecipeDetailViewController.swift */; };
 		E946C6DC248C19530096B1D7 /* RecipeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E946C6DB248C19530096B1D7 /* RecipeService.swift */; };
 		E946C6DE248C1A5A0096B1D7 /* UrlEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E946C6DD248C1A5A0096B1D7 /* UrlEncoder.swift */; };
+		E952E8162518EE550084A4D1 /* FakeCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E952E8152518EE550084A4D1 /* FakeCoreDataStack.swift */; };
+		E952E8182518EEAB0084A4D1 /* CoreDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E952E8172518EEAB0084A4D1 /* CoreDataManagerTests.swift */; };
+		E952E81A251916650084A4D1 /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E952E819251916650084A4D1 /* FakeResponseData.swift */; };
+		E952E81C251916AA0084A4D1 /* FakeRecipeSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E952E81B251916AA0084A4D1 /* FakeRecipeSession.swift */; };
+		E952E81E251920590084A4D1 /* AlamoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E952E81D251920590084A4D1 /* AlamoSession.swift */; };
+		E952E820251924C80084A4D1 /* Data.json in Resources */ = {isa = PBXBuildFile; fileRef = E952E81F251924C80084A4D1 /* Data.json */; };
+		E952E8222519364A0084A4D1 /* URLRecipeSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = E952E8212519364A0084A4D1 /* URLRecipeSessionFake.swift */; };
 		E9752D6D247DC44D009467A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9752D6C247DC44D009467A3 /* AppDelegate.swift */; };
 		E9752D6F247DC44D009467A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9752D6E247DC44D009467A3 /* SceneDelegate.swift */; };
 		E9752D74247DC44D009467A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9752D72247DC44D009467A3 /* Main.storyboard */; };
@@ -78,6 +85,13 @@
 		E946C6D9248C153C0096B1D7 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		E946C6DB248C19530096B1D7 /* RecipeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeService.swift; sourceTree = "<group>"; };
 		E946C6DD248C1A5A0096B1D7 /* UrlEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlEncoder.swift; sourceTree = "<group>"; };
+		E952E8152518EE550084A4D1 /* FakeCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCoreDataStack.swift; sourceTree = "<group>"; };
+		E952E8172518EEAB0084A4D1 /* CoreDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTests.swift; sourceTree = "<group>"; };
+		E952E819251916650084A4D1 /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
+		E952E81B251916AA0084A4D1 /* FakeRecipeSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeRecipeSession.swift; sourceTree = "<group>"; };
+		E952E81D251920590084A4D1 /* AlamoSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamoSession.swift; sourceTree = "<group>"; };
+		E952E81F251924C80084A4D1 /* Data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Data.json; sourceTree = "<group>"; };
+		E952E8212519364A0084A4D1 /* URLRecipeSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRecipeSessionFake.swift; sourceTree = "<group>"; };
 		E9752D69247DC44D009467A3 /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9752D6C247DC44D009467A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9752D6E247DC44D009467A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -231,6 +245,13 @@
 			children = (
 				E9752D86247DC454009467A3 /* RecipleaseTests.swift */,
 				E9752D88247DC454009467A3 /* Info.plist */,
+				E952E8152518EE550084A4D1 /* FakeCoreDataStack.swift */,
+				E952E8172518EEAB0084A4D1 /* CoreDataManagerTests.swift */,
+				E952E819251916650084A4D1 /* FakeResponseData.swift */,
+				E952E81B251916AA0084A4D1 /* FakeRecipeSession.swift */,
+				E952E81D251920590084A4D1 /* AlamoSession.swift */,
+				E952E81F251924C80084A4D1 /* Data.json */,
+				E952E8212519364A0084A4D1 /* URLRecipeSessionFake.swift */,
 			);
 			path = RecipleaseTests;
 			sourceTree = "<group>";
@@ -449,6 +470,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E952E820251924C80084A4D1 /* Data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,7 +619,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E952E8162518EE550084A4D1 /* FakeCoreDataStack.swift in Sources */,
+				E952E81A251916650084A4D1 /* FakeResponseData.swift in Sources */,
+				E952E8182518EEAB0084A4D1 /* CoreDataManagerTests.swift in Sources */,
+				E952E81C251916AA0084A4D1 /* FakeRecipeSession.swift in Sources */,
 				E9752D87247DC454009467A3 /* RecipleaseTests.swift in Sources */,
+				E952E8222519364A0084A4D1 /* URLRecipeSessionFake.swift in Sources */,
+				E952E81E251920590084A4D1 /* AlamoSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -766,6 +794,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69VMC86YYY;
 				INFOPLIST_FILE = Reciplease/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -785,6 +814,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69VMC86YYY;
 				INFOPLIST_FILE = Reciplease/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

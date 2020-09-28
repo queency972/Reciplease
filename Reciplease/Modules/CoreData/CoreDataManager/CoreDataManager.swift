@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-final class CoreDataManager {
+ final class CoreDataManager {
     
     // MARK: - Properties
     private let coreDataStack: CoreDataStack

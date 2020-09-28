@@ -85,6 +85,7 @@ final class SearchPageViewController: UIViewController {
                     self?.performSegue(withIdentifier: "segueToSucces", sender: nil)
                 case .failure(_):
                     self?.presentAlert(title: "Connection error", message: "")
+                    self?.recipesLoaded(recipe: true)
                 }
             }
         }

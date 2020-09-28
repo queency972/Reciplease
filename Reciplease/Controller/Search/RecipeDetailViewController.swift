@@ -22,7 +22,7 @@ final class RecipeDetailViewController: UIViewController {
 
     var detailIngredients: DetailIngredients?
     private var coreDataManager: CoreDataManager?
-    var comeFromFavorite: Bool = false 
+    var comeFromFavorite: Bool = false
 
     // MARK: - Oulets
     @IBOutlet weak var recipeTitleLabel: UILabel!
