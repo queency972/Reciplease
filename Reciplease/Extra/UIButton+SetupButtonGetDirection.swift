@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 
+// MARK: - Extension UIButton
+
+// Set button apparence
 extension UIButton {
     func setupGetDirectionButton() {
         layer.cornerRadius = 5

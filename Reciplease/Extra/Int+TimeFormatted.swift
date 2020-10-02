@@ -9,8 +9,9 @@
 import Foundation
 
 // MARK: - Extension Int
+
+// Extension convert seconde to minute
 extension Int {
-    // Extension convert seconde to minute
     var timeInSecondsToString: String {
         get {
             let minutes = self % (60 * 60) / 60

@@ -17,6 +17,9 @@ final class FavoriteListViewController: UIViewController {
     private var coreDataManager: CoreDataManager?
     private var recipeEntity: RecipeEntity?
 
+
+     // MARK: - Methods
+
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else { return }
@@ -48,6 +51,9 @@ final class FavoriteListViewController: UIViewController {
         favoriteDetailsVC.comeFromFavorite = true
     }
 }
+
+
+  // MARK: - Extension
 
 extension FavoriteListViewController: UITableViewDataSource, UITableViewDelegate {
 

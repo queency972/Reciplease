@@ -10,14 +10,17 @@ import Foundation
 import UIKit
 
 // MARK: - Extension String
+
+// Convert string to data
 extension String {
-    // Convert string to data
     var data: Data? {
         guard let url = URL(string: self) else {return nil}
         guard let data = try? Data(contentsOf: url) else {return nil}
         return data
     }
 }
+
+// MARK: - Extension Data
 
 // Convert Data to UIImage
 extension Data {

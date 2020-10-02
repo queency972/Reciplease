@@ -22,11 +22,11 @@
 		E946C6DA248C153C0096B1D7 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E946C6D9248C153C0096B1D7 /* RecipeDetailViewController.swift */; };
 		E946C6DC248C19530096B1D7 /* RecipeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E946C6DB248C19530096B1D7 /* RecipeService.swift */; };
 		E946C6DE248C1A5A0096B1D7 /* UrlEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E946C6DD248C1A5A0096B1D7 /* UrlEncoder.swift */; };
+		E9492FE42527AEC000A073A4 /* UserIngredientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9492FE32527AEC000A073A4 /* UserIngredientTest.swift */; };
 		E952E8162518EE550084A4D1 /* FakeCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E952E8152518EE550084A4D1 /* FakeCoreDataStack.swift */; };
 		E952E8182518EEAB0084A4D1 /* CoreDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E952E8172518EEAB0084A4D1 /* CoreDataManagerTests.swift */; };
 		E952E81A251916650084A4D1 /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E952E819251916650084A4D1 /* FakeResponseData.swift */; };
 		E952E81C251916AA0084A4D1 /* FakeRecipeSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E952E81B251916AA0084A4D1 /* FakeRecipeSession.swift */; };
-		E952E81E251920590084A4D1 /* AlamoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E952E81D251920590084A4D1 /* AlamoSession.swift */; };
 		E952E820251924C80084A4D1 /* Data.json in Resources */ = {isa = PBXBuildFile; fileRef = E952E81F251924C80084A4D1 /* Data.json */; };
 		E952E8222519364A0084A4D1 /* URLRecipeSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = E952E8212519364A0084A4D1 /* URLRecipeSessionFake.swift */; };
 		E9752D6D247DC44D009467A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9752D6C247DC44D009467A3 /* AppDelegate.swift */; };
@@ -35,7 +35,7 @@
 		E9752D77247DC44D009467A3 /* Reciplease.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9752D75247DC44D009467A3 /* Reciplease.xcdatamodeld */; };
 		E9752D79247DC454009467A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9752D78247DC454009467A3 /* Assets.xcassets */; };
 		E9752D7C247DC454009467A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9752D7A247DC454009467A3 /* LaunchScreen.storyboard */; };
-		E9752D87247DC454009467A3 /* RecipleaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9752D86247DC454009467A3 /* RecipleaseTests.swift */; };
+		E9752D87247DC454009467A3 /* RecipeServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9752D86247DC454009467A3 /* RecipeServiceTests.swift */; };
 		E9752D92247DC454009467A3 /* RecipleaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9752D91247DC454009467A3 /* RecipleaseUITests.swift */; };
 		E97D76C824A709E600C2A3D3 /* RecipeSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97D76C724A709E600C2A3D3 /* RecipeSession.swift */; };
 		E97D76CC24AD878300C2A3D3 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97D76CB24AD878300C2A3D3 /* CoreDataStack.swift */; };
@@ -85,11 +85,11 @@
 		E946C6D9248C153C0096B1D7 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		E946C6DB248C19530096B1D7 /* RecipeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeService.swift; sourceTree = "<group>"; };
 		E946C6DD248C1A5A0096B1D7 /* UrlEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlEncoder.swift; sourceTree = "<group>"; };
+		E9492FE32527AEC000A073A4 /* UserIngredientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIngredientTest.swift; sourceTree = "<group>"; };
 		E952E8152518EE550084A4D1 /* FakeCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCoreDataStack.swift; sourceTree = "<group>"; };
 		E952E8172518EEAB0084A4D1 /* CoreDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTests.swift; sourceTree = "<group>"; };
 		E952E819251916650084A4D1 /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
 		E952E81B251916AA0084A4D1 /* FakeRecipeSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeRecipeSession.swift; sourceTree = "<group>"; };
-		E952E81D251920590084A4D1 /* AlamoSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamoSession.swift; sourceTree = "<group>"; };
 		E952E81F251924C80084A4D1 /* Data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Data.json; sourceTree = "<group>"; };
 		E952E8212519364A0084A4D1 /* URLRecipeSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRecipeSessionFake.swift; sourceTree = "<group>"; };
 		E9752D69247DC44D009467A3 /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,7 +101,7 @@
 		E9752D7B247DC454009467A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E9752D7D247DC454009467A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9752D82247DC454009467A3 /* RecipleaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipleaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E9752D86247DC454009467A3 /* RecipleaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipleaseTests.swift; sourceTree = "<group>"; };
+		E9752D86247DC454009467A3 /* RecipeServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeServiceTests.swift; sourceTree = "<group>"; };
 		E9752D88247DC454009467A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9752D8D247DC454009467A3 /* RecipleaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipleaseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9752D91247DC454009467A3 /* RecipleaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipleaseUITests.swift; sourceTree = "<group>"; };
@@ -243,15 +243,15 @@
 		E9752D85247DC454009467A3 /* RecipleaseTests */ = {
 			isa = PBXGroup;
 			children = (
-				E9752D86247DC454009467A3 /* RecipleaseTests.swift */,
+				E9752D86247DC454009467A3 /* RecipeServiceTests.swift */,
+				E9492FE32527AEC000A073A4 /* UserIngredientTest.swift */,
+				E952E8172518EEAB0084A4D1 /* CoreDataManagerTests.swift */,
 				E9752D88247DC454009467A3 /* Info.plist */,
 				E952E8152518EE550084A4D1 /* FakeCoreDataStack.swift */,
-				E952E8172518EEAB0084A4D1 /* CoreDataManagerTests.swift */,
 				E952E819251916650084A4D1 /* FakeResponseData.swift */,
 				E952E81B251916AA0084A4D1 /* FakeRecipeSession.swift */,
-				E952E81D251920590084A4D1 /* AlamoSession.swift */,
-				E952E81F251924C80084A4D1 /* Data.json */,
 				E952E8212519364A0084A4D1 /* URLRecipeSessionFake.swift */,
+				E952E81F251924C80084A4D1 /* Data.json */,
 			);
 			path = RecipleaseTests;
 			sourceTree = "<group>";
@@ -620,12 +620,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E952E8162518EE550084A4D1 /* FakeCoreDataStack.swift in Sources */,
+				E9492FE42527AEC000A073A4 /* UserIngredientTest.swift in Sources */,
 				E952E81A251916650084A4D1 /* FakeResponseData.swift in Sources */,
 				E952E8182518EEAB0084A4D1 /* CoreDataManagerTests.swift in Sources */,
 				E952E81C251916AA0084A4D1 /* FakeRecipeSession.swift in Sources */,
-				E9752D87247DC454009467A3 /* RecipleaseTests.swift in Sources */,
+				E9752D87247DC454009467A3 /* RecipeServiceTests.swift in Sources */,
 				E952E8222519364A0084A4D1 /* URLRecipeSessionFake.swift in Sources */,
-				E952E81E251920590084A4D1 /* AlamoSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

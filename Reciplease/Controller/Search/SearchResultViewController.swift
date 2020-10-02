@@ -18,7 +18,7 @@ final class SearchResultViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
 
-    // MARK: - Functions
+    // MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         // Import XIB (Create class of Xib)

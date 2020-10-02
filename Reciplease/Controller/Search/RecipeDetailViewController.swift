@@ -32,7 +32,7 @@ final class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var favorisButton: UIBarButtonItem!
     @IBOutlet weak var yieldLabel: UILabel!
 
-    // MARK: - Funtions
+    // MARK: - Methods
     @IBAction func addFavorisButton(_ sender: UIBarButtonItem) {
         guard let totalTime = detailIngredients?.time else {return}
         guard let yield = detailIngredients?.yield else {return}

@@ -8,6 +8,9 @@
 
 import UIKit
 
+// MARK: - Extension UITableView
+
+// Set a message when tableView is empty
 extension UITableView {
 
     func setEmptyMessage(_ message: String) {

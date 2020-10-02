@@ -11,7 +11,7 @@ import SDWebImage
 
 // Set interface
 final class RecipeTableViewCell: UITableViewCell {
-
+    
     // MARK: - Outlets
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
@@ -19,9 +19,9 @@ final class RecipeTableViewCell: UITableViewCell {
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var yieldLabel: UILabel!
     @IBOutlet weak var ingredientsListLabel: UILabel!
-
+    
     // MARK: - Properties
-
+    
     // Set interface from network
     var recipe: Recipe? {
         didSet {
@@ -35,7 +35,7 @@ final class RecipeTableViewCell: UITableViewCell {
             ingredientsListLabel.text = "\(ingredients)"
         }
     }
-     // Set interface from Coredata
+    // Set interface from Coredata
     var recipeEntity: RecipeEntity? {
         didSet {
             titleLabel.text = recipeEntity?.title

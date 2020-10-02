@@ -28,7 +28,7 @@ final class FakeCoreDataStack: CoreDataStack {
         // creation d'un nouveau container
         let container = NSPersistentContainer(name: modelName)
         container.persistentStoreDescriptions = [persistentStoreDescription]
-        // loading.
+        // loading
         container.loadPersistentStores { storeDescription, error in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")

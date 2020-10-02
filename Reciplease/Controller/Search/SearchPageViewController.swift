@@ -10,7 +10,7 @@ import UIKit
 
 // Search Page Interface
 final class SearchPageViewController: UIViewController {
-
+    
     // MARK: - Properties
     private let userIngredient = UserIngredient()
     private let recipe = RecipeService()
@@ -21,24 +21,24 @@ final class SearchPageViewController: UIViewController {
         setupGetDirectionButton()
         activityIndicator.isHidden = true
     }
-
+    
     // MARK: - Outlets
     @IBOutlet weak var ingredientTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchForRecipes: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-     // MARK: - Functions
+    // MARK: - Methods
     @IBAction func clearIngredientButton(_ sender: UIButton) {
         userIngredient.resetIngredients()
         // Allowing to reload TableView
         tableView.reloadData()
     }
-
+    
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         ingredientTextField.resignFirstResponder()
     }
-
+    
     // Allowing to add ingredient in the list.
     @IBAction func addIngredientButton(_ sender: UIButton) {
         // Check if inputIngredient is not empty.
@@ -102,7 +102,7 @@ final class SearchPageViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let searchResultVC = segue.destination as? SearchResultViewController else {return}
         searchResultVC.hits = hits
-    
+        
     }
 }
 
@@ -110,10 +110,10 @@ final class SearchPageViewController: UIViewController {
 extension SearchPageViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if userIngredient.allIngredients.count == 0 {
-              tableView.setEmptyMessage("Add your ingredient !")
-          } else {
-              self.tableView.restore()
-          }
+            tableView.setEmptyMessage("Add your ingredient !")
+        } else {
+            self.tableView.restore()
+        }
         return  userIngredient.allIngredients.count
     }
     
@@ -128,12 +128,12 @@ extension SearchPageViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return userIngredient.allIngredients.isEmpty ? 0 : 1
     }
-
+    
     // remove ingredient at index
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-         if editingStyle == .delete {
+        if editingStyle == .delete {
             userIngredient.removeIngredient(at: indexPath.row)
-             tableView.deleteRows(at: [indexPath], with: .automatic)
-         }
-     }
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
 }

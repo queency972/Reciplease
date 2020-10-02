@@ -33,7 +33,7 @@ class CoreDataManagerTests: XCTestCase {
     // MARK: - Tests
 
     func testAddTeskMethods_WhenAnEntityIsCreated_ThenShouldBeCorrectlySaved() {
-            coreDataManager.createRecipe(title: "toto", ingredients: ["toto"], time: "3", url: "//https:apple.com", yield: "3", image: FakeResponseData.correctData)
+        coreDataManager.createRecipe(title: "toto", ingredients: ["toto"], time: "3", url: "//https:apple.com", yield: "3", image: FakeResponseData.correctData)
         XCTAssertTrue(!coreDataManager.recipes.isEmpty)
         XCTAssertTrue(coreDataManager.recipes.count == 1)
         XCTAssertTrue(coreDataManager.recipes[0].title == "toto")
@@ -43,5 +43,25 @@ class CoreDataManagerTests: XCTestCase {
         coreDataManager.createRecipe(title: "toto", ingredients: ["toto"], time: "3", url: "//https:apple.com", yield: "3", image: FakeResponseData.correctData)
         coreDataManager.deleteRecipe(title: "toto")
         XCTAssertTrue(coreDataManager.recipes.isEmpty)
+    }
+
+    func testAddRecipe_WhenAnEntityIsEmpty_ThenShouldHaveRecipeInCoreData() {
+        if coreDataManager.isRecipeRegistered(title: "egg") {
+            XCTAssertTrue(!coreDataManager.recipes.isEmpty)
+            XCTAssertTrue(coreDataManager.recipes.count == 1)
+            XCTAssertTrue(coreDataManager.recipes[0].title == "egg")
+        }
+    }
+
+    func testAddRecipe_WhenRecipeIsAlreadyPresent_ThenShouldHaveNotAddRecipeInCoreData() {
+        coreDataManager.createRecipe(title: "egg", ingredients: ["egg"], time: "3", url: "//https:apple.com", yield: "3", image: FakeResponseData.correctData)
+
+        if !coreDataManager.isRecipeRegistered(title: "egg") {
+            XCTAssertTrue(coreDataManager.recipes[0].title == "egg")
+            XCTAssertTrue(!coreDataManager.recipes.isEmpty)
+            XCTAssertTrue(coreDataManager.recipes.count == 1)
+            XCTAssertTrue(coreDataManager.recipes[0].title == "egg")
+            XCTAssertTrue(!coreDataManager.isRecipeRegistered(title: "egg"))
+        }
     }
 }

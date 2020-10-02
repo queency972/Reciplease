@@ -53,7 +53,8 @@ import CoreData
         recipe.url = url
         coreDataStack.saveContext()
     }
-    
+
+    // Delete favorite
     func deleteRecipe(title: String) {
         let fetchRequest: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "title = %@", title)

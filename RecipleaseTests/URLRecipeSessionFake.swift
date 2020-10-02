@@ -8,7 +8,7 @@
 
 import Foundation
 
-// Double class reponsible of the call network. (Func dataTask())
+// Double class reponsible of the call network
 class URLRecipeSessionFake: URLSession {
     var data: Data?
     var response: URLResponse?

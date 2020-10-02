@@ -6,7 +6,7 @@
 //  Copyright © 2020 Steve Bernard. All rights reserved.
 //
 
-@testable import Alamofire
+@testable import Reciplease
 import Foundation
 import Alamofire
 
